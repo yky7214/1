@@ -1,363 +1,244 @@
-```yaml
-complete_reproduction_plan:
-  paper_info:
-    title: "Forecast-to-Fill: Benchmark-Neutral Alpha and Billion-Dollar Capacity in Gold Futures (2015–2025)"
-    core_contribution: "A strict walk-forward ‘forecast-to-fill’ gold-futures trading pipeline: EMA-slope + momentum regime signal → confidence shaping → volatility targeting → friction- and impact-adjusted fractional Kelly sizing → ATR stop/timeout exits → latency-aware fills and cost/impact accounting; validated OOS with bootstrap CIs, HAC alpha regression, SPA/Reality Check, robustness grids, and capacity mapping to ~$1B AUM."
+# Forecast-to-Fill (ftf_repro)
 
-  file_structure: |
-    ftf_repro/
-      src/ftf/
-        data/{loaders.py,calendar.py,futures_roll.py,validation.py}
-        signals/{ema_trend.py,momentum.py,regime.py}
-        risk/{ewma_vol.py,confidence.py}
-        sizing/{kelly.py,policy_weight.py}
-        trading/{atr.py,exits.py,engine.py,logs.py}
-        execution/{latency.py,costs.py,fills.py}
-        walkforward/{schedule.py,trainer.py,runner.py}
-        stats/{metrics.py,regression.py,bootstrap.py,spa.py}
-        capacity/{growth_curve.py,participation.py,aum_mapping.py}
-        reporting/{figures.py,tables.py}
-        utils/{config.py,io.py,seed.py}
-      configs/{base_fast.yaml,grids/{spa_grid.yaml,cost_impact_grid.yaml,latency_grid.yaml}}
-      scripts/{01_build_data.py,02_run_fast_oos.py,03_latency.py,04_cost_impact.py,05_spa.py,06_capacity.py,07_report.py}
-      tests/{test_no_lookahead.py,test_walkforward.py,test_kelly.py,test_atr_exits.py,test_costs.py,test_hac.py,test_roll.py}
-      reports/ (generated)
-      README.md  # implement last
-      requirements.txt  # implement last
+Reproduction codebase for the **Forecast-to-Fill** walk-forward gold-futures strategy.
 
-  implementation_components: |
-    0) Config & conventions (src/ftf/utils/config.py)
-      - All hyperparameters must be explicit, serialized per walk-forward anchor.
-      - Time convention (critical):
-        * Decision time uses information up to close of day t (F_t).
-        * Baseline execution is T+1 close: target decided at t becomes executed weight at t+1.
-        * P&L attribution: net_ret[t] uses executed weight held over (t-1→t):
-            gross_ret[t] = w_exec[t-1] * r[t], where r[t]=P[t]/P[t-1]-1.
-      - Overlapping OOS slices (critical): implement a canonical stitching rule:
-        Option A (recommended): “first-step only” stitching.
-          For anchor t0 with 6m test, only keep returns for [t0, t0+step) (step=1 month).
-          This avoids double-counting and makes final OOS a single chronological series.
-        Option B: full 6m per anchor (overlapping) only for diagnostics; never used for final Sharpe.
+This repository implements a **research-grade, fully out-of-sample** reproduction of a
+Forecast-to-Fill style trading system, focusing on **engineering realism**:
+execution timing, costs, impact, volatility targeting, and statistical validation.
 
-    1) Data ingestion & calendar alignment (src/ftf/data/loaders.py, calendar.py)
-      Inputs:
-        - Raw GC futures per-contract daily OHLC(+settle/close) and volume/ADV in contracts/day.
-        - Contract metadata: first notice date (FND) per contract.
-        - LBMA PM fix spot series for benchmark regression only.
-      Calendar alignment requirements:
-        - Create NYSE business-day index; reindex all series.
-        - Forward-fill PRICES (close/settle, high, low only if missing entire day) but do not fabricate returns:
-          returns computed from the filled close series.
-        - Validate monotonic dates, no duplicate timestamps, and consistent timezone-naive dates.
+The design follows a strict separation between **training** and **testing**, and is intended
+to be iterated by changing parameters or code, repeatedly running:
 
-    2) Continuous futures builder (src/ftf/data/futures_roll.py)
-      Goal: GC continuous front-month, rolled 2 business days before first notice date.
-      Implementation outline:
-        - For each date d, determine active contract:
-          active = nearest-to-expiry contract with d < (FND - 2 business days).
-        - Build continuous OHLC:
-          * Use that contract’s daily OHLC for each day.
-          * On roll day, switch to next contract’s OHLC from that day onward.
-        - Returns (must include roll P&L implicitly via price splice):
-          r[d] = P_cont[d]/P_cont[d-1]-1 from the spliced continuous close.
-        - Store:
-          df_cont with columns: close, high, low (and open if available), volume/ADV.
-        - Validation (src/ftf/data/validation.py):
-          * Ensure roll dates match rule.
-          * Ensure no NaNs after warmup.
-          * Sanity-check distribution of daily returns and ATR.
+> modify → backtest → inspect outputs → modify → backtest
 
-    3) Walk-forward schedule & freezing protocol (src/ftf/walkforward/schedule.py, trainer.py, runner.py)
-      Schedule:
-        - Train window = 10 years (~2520 bd), Test window = 6 months (~126 bd), Step = 1 month (~21 bd).
-        - Anchors from 2015-01-01 to 2025-10-31 (or last anchor allowing full test).
-      Freezing rule:
-        - For each anchor t0:
-          * Train slice: [t0-10y, t0)
-          * Test slice:  [t0, t0+6m)
-          * Estimate on train only; freeze parameters for trading in the kept OOS segment.
-        - Frozen params per anchor (serialize to JSON/YAML in artifacts/):
-          λ (EMA smoothing), μ_slope, σ_slope, ω (blend), pbull_threshold,
-          θ (EWMA var decay), Kelly μ/σ (unit-notional sleeve), plus constants:
-          z_clip=[-3,3], K=50, ATR settings (14, 2.0, 1.5, timeout=30),
-          costs k=0.7bps, impact γ=0.02, Wmax=2.0, vol_target=15%, λKelly=0.40, baseline_floor=0.25.
-      Parameter estimation method (paper not fully specifies; must be deterministic and train-only):
-        - Provide 2 modes in trainer.py (select via config):
-          Mode FIXED (most reproducible): λ=0.94, θ=0.94, ω=0.6, pbull_th=0.52.
-          Mode GRID (paper-consistent): grid-search on train maximizing train Sharpe(net) of the unit-notional policy:
-            λ ∈ {0.90,0.92,0.94,0.96,0.97,0.98}
-            θ ∈ {0.94,0.96,0.9659} (include 20-day half-life)
-            ω ∈ {0.5,0.6,0.7}
-            pbull_th ∈ {0.50,0.52,0.55,0.60}
-          Selection criterion: highest train Sharpe with turnover/cost model enabled; tie-breaker = lower turnover.
+until results converge toward the reference behavior.
 
-    4) Signal engine: EMA slope → z → p_trend; momentum; blend to p_bull (src/ftf/signals/*.py)
-      Definitions:
-        - y_t = log(P_t)
-        - EMA: ỹ_t = λ ỹ_{t-1} + (1-λ) y_t
-        - slope proxy: Δỹ_t = ỹ_t - ỹ_{t-1}
-        - Standardize using train stats (computed on train Δỹ):
-            z_t = (Δỹ_t - μ_train)/σ_train
-            z̄_t = clip(z_t, -3, 3)
-            p_trend(t) = (z̄_t + 3)/6 ∈ [0,1]
-        - Momentum confirmation (K=50):
-            m_t = 1{ P_t / P_{t-K} > 1 }  else 0
-        - Blend:
-            p_bull(t) = ω p_trend(t) + (1-ω) m_t
-            p_bear(t) = 1 - p_bull(t)
-      Entry gate (long-only):
-        - eligible_to_enter = (p_bull(t) ≥ pbull_th) AND (Δỹ_t > 0)
-      Regime labels for attribution (optional but needed for Table/Fig):
-        - bull if p_bull≥0.55; bear if p_bull≤0.45; else chop.
+---
 
-    5) ATR computation & exit/state machine (src/ftf/trading/atr.py, exits.py, engine.py)
-      ATR14:
-        - TR_t = max(H_t-L_t, |H_t-C_{t-1}|, |L_t-C_{t-1}|)
-        - ATR_14(t) = mean(TR_{t-13..t})
-      Position state (long-only):
-        state vars: active(bool), entry_price, peak_price, age_days.
-      While active:
-        - peak_price = max(peak_price, price_reference)
-          (choose close or high; implement config price_reference_for_peak ∈ {close, high}; default=close)
-        - Hard stop trigger: close_t ≤ entry_price - 2.0*ATR14(t)
-        - Trailing stop trigger: close_t ≤ peak_price - 1.5*ATR14(t)
-        - Timeout: age_days ≥ 30 → exit
-        - Regime de-risk when p_bear(t) > 0.50 (paper ambiguous):
-          Implement deterministic, configurable policy:
-            * DERISK_HALF: while p_bear>0.50, target_weight := 0.5 * target_weight_raw
-            * DERISK_CLOSE: if p_bear>0.50, exit immediately
-          Default: DERISK_HALF (closest to “halve or close”).
-      Stop execution convention (paper implies daily closes):
-        - When stop condition met at close t, set next target to 0; with T+1 latency it exits at close t+1.
-        - Provide option STOP_FILL_SAME_CLOSE for sensitivity (T+0 style), but keep baseline consistent.
+## How to use this repository
 
-    6) Risk model: EWMA variance & volatility targeting (src/ftf/risk/ewma_vol.py)
-      - EWMA variance recursion:
-          σ̂^2_{t+1} = θ σ̂^2_t + (1-θ) r_t^2
-        Initialize at OOS start: σ̂^2_{t0} = Var_train(r).
-      - Convert annual target to daily:
-          σ* = 0.15 / sqrt(252)
-      - Vol weight (risk budget):
-          w_vol(t) = min(Wmax, σ* / sqrt(σ̂^2_{t+1}))
-        with Wmax = 2.0.
-      Notes:
-        - Use r_t based on continuous close-to-close returns (already calendar-aligned).
+- If you want to **reproduce the baseline results** → Sections **1–4**
+- If you want to **stress-test robustness** (latency, cost, SPA) → Section **5**
+- If you want to **study scalability / capacity** → Section **6**
+- If you want to **generate final figures and statistics** → Section **7**
 
-    7) Confidence shaping + friction-adjusted Kelly sizing (src/ftf/risk/confidence.py, sizing/kelly.py, sizing/policy_weight.py)
-      Confidence share:
-        - conf_share(t) = max(0, (p_bull(t) - 0.5)/0.5)  ∈ [0,1]
-        - w_conf(t) = w_vol(t) * conf_share(t)
-      Friction-adjusted Kelly (computed on training only; frozen per anchor):
-        - Define a unit-notional sleeve return series R_t on training:
-          Recommended (most consistent with “policy edge”): simulate the SAME entry/exit engine
-          but with fixed weight=1 when active, 0 when flat, gross-of-costs.
-          Then R_t = position_{t-1} * r_t (with same fill convention as main, but weight fixed).
-        - Compute μ = mean(R_t), σ^2 = var(R_t) on training.
-        - Growth proxy with linear cost and impact penalty:
-            g(f) ≈ μ f - 0.5 σ^2 f^2 - n k f - γ (n f)^{3/2}
-          with n=1, k=0.00007 (0.7 bps), γ=0.02.
-        - Closed form optimizer:
-          Let x = sqrt(f). Solve:
-            2σ^2 x^2 + 3γ n^{3/2} x - 2(μ - n k) = 0
-          If μ ≤ n k → f* = 0
-          Else:
-            x* = (-3γ n^{3/2} + sqrt(9γ^2 n^3 + 16 σ^2 (μ - n k))) / (4σ^2)
-            f* = (x*)^2
-        - Fractional Kelly:
-            f_tilde = λKelly * f*, with λKelly=0.40.
-      Final raw target weight (before entry/exit gating):
-        - w_raw(t) = clip(f_tilde * w_conf(t), 0, Wmax)  (long-only, nonnegative)
-        - Baseline floor when f_tilde ~ 0 (paper: 25% of usual size):
-          Provide config baseline_floor_mode:
-            * FLOOR_ON_WVOL: if f_tilde < eps => w_raw = 0.25 * w_vol(t)
-            * FLOOR_ON_WCONF: if f_tilde < eps => w_raw = 0.25 * w_conf(t)
-          Default: FLOOR_ON_WVOL with eps=1e-6.
-      Then pass w_raw into the state machine which outputs w_target(t) (0 when flat).
+---
 
-    8) Execution latency & cost/impact model (src/ftf/execution/latency.py, costs.py, fills.py)
-      Latency:
-        - Implement lag buffer:
-            w_exec(t) = w_target(t - d), d ∈ {0,1,2}, baseline d=1.
-      Turnover:
-        - turnover(t) = |w_exec(t) - w_exec(t-1)|
-      Costs (deterministic, subtracted from daily returns):
-        - Linear: cost_lin(t) = k * turnover(t)
-        - Impact: cost_imp(t) = γ * turnover(t)^(3/2)
-          (This matches the reduced-form penalty; keep it identical in backtest and stress tests.)
-      Net return:
-        - net_ret(t) = w_exec(t-1) * r(t) - cost_lin(t) - cost_imp(t)
-      Logging:
-        - Persist per-day fields: p_bull, slope, ATR, w_vol, f_tilde, w_raw, w_target, w_exec,
-          turnover, costs, gross_ret, net_ret, and trade events.
+## Overview
 
-    9) Evaluation metrics & reporting (src/ftf/stats/metrics.py, regression.py, bootstrap.py; reporting/*)
-      Performance:
-        - Sharpe = mean(net_ret)/std(net_ret) * sqrt(252)
-        - CAGR, annual vol, MaxDD, Calmar.
-        - Active-day stats (define active if w_exec(t-1) > 1e-3):
-          hit_rate = P(net_ret>0 | active), payoff_ratio = mean(win)/|mean(loss)|, expectancy (bps).
-      Regression vs benchmark (LBMA spot):
-        - Align daily benchmark returns r_gold,t.
-        - Regression: r_strat,t = α_d + β r_gold,t + ε_t
-        - HAC SE: Newey–West with lag L (not specified): implement config nw_lags default=10; also report sensitivity L∈{5,10,20}.
-        - Annualize alpha: α_ann = 252 * α_d.
-        - Tracking error: std(ε_t)*sqrt(252); IR = α_ann / TE.
-      Bootstrap Sharpe CI:
-        - Block bootstrap (default): B=1000, block_len=20.
-        - Also implement stationary bootstrap (for SPA).
-      SPA / White Reality Check:
-        - Build a 64-config grid (configs/grids/spa_grid.yaml) over λ, ω, pbull_th, θ (or other 4×4×2×2 style).
-        - For each config i compute test statistic (e.g., Sharpe_i - Sharpe_0 or mean return differential).
-        - Use stationary or block bootstrap (B=800, block_len=20) to get p-values; report SPA and RC.
+Key properties of the implementation:
 
-    10) Capacity analysis (src/ftf/capacity/*)
-      Growth curve in leverage space L:
-        - g(L) ≈ μ_u L - 0.5 (σ_u L)^2 - n k L - γ (nL)^{3/2}
-        - Estimate μ_u, σ_u from unit-notional sleeve returns (same as Kelly estimation, but store separately).
-      Solve for L_max where g(L)=0 (positive root), and report curve g(L) for a grid of L.
-      Map leverage/turnover to AUM via participation:
-        - q_t = |Δcontracts_t|/ADV_t
-        - With AUM A and target weight change Δw_t:
-            Δcontracts_t ≈ |Δw_t| * A / (P_contract_t * M)
-            q_t = |Δw_t| * A / (P_contract_t * M * ADV_t)
-        - Use GC multiplier M=100 troy ounces; P_contract_t is futures price in $/oz (or per ounce convention).
-      Produce A_max estimate:
-        - Choose representative |Δw| (median turnover on active days) and ADV (median ADV).
-        - Find A where median(q_t) hits chosen participation cap (config, e.g., 1%).
-        - Also report paper-style back-of-envelope using ADV_$ and mean |Δw|.
+- Strict walk-forward: **10y train / 6m test / 1m step**
+- Decision at **close of day _t_**, execution with **T+lag close** (default **T+1**)
+- EMA-slope + momentum regime
+- Confidence shaping → volatility targeting → **friction- & impact-adjusted fractional Kelly**
+- ATR(14) hard stop + trailing stop + timeout exits
+- Deterministic turnover-based linear cost + square-root market impact
+- Canonical OOS stitching rule: **FIRST_STEP_ONLY** (non-overlapping OOS)
+- Evaluation:
+  - performance metrics
+  - Newey–West (HAC) regression vs LBMA spot
+  - bootstrap Sharpe confidence intervals
+  - SPA / White Reality Check
+- Capacity analysis via growth curve in leverage space and AUM mapping using participation vs ADV
 
-  validation_approach: |
-    A) Data & pipeline sanity (must pass before any performance claims)
-      1) Continuous roll correctness:
-        - Unit test: for known sample of contracts/FNDs, verify roll occurs exactly 2 NYSE business days pre-FND.
-        - Check no discontinuity spikes at roll beyond plausible daily moves (report histogram around roll dates).
-      2) Calendar alignment:
-        - Assert business-day index; no missing closes after forward-fill; returns finite.
-      3) No look-ahead tests:
-        - tests/test_no_lookahead.py:
-          * For a random day t in OOS, recompute p_bull using only prices ≤ t; match stored value.
-          * Ensure ATR at t uses only {H,L,C} up to t (C_{t-1} allowed), never t+1.
+---
 
-    B) Component-level numerical checks
-      1) EMA / z-score mapping:
-        - On a fixed small series, compare EMA recursion to a reference numpy implementation.
-        - Confirm p_trend always in [0,1] and equals (clip(z,-3,3)+3)/6.
-      2) Kelly solver:
-        - tests/test_kelly.py:
-          * Compare closed-form f* to numerical maximization of g(f) on a grid f∈[0,5] for random (μ,σ,k,γ).
-          * Verify f*=0 when μ≤nk and monotonic decrease as k or γ increases.
-      3) ATR exits:
-        - tests/test_atr_exits.py:
-          * Synthetic path triggers hard stop, trailing stop, and timeout deterministically.
-          * Verify peak_price update convention (close vs high) is consistent with config.
+## Data policy (important)
 
-    C) Reproduce headline FAST OOS results (2015–2025, baseline T+1, k=0.7bps, γ=0.02)
-      Run: scripts/02_run_fast_oos.py with base_fast.yaml.
-      Expected (approximate; allow drift due to λ/θ estimation and stop convention):
-        - Net OOS Sharpe in “high-2s”, target ~2.88.
-        - Max drawdown well below 1%, target ~0.52%.
-        - Active-day hit rate ~65% and payoff ratio ~1.5 (order of magnitude).
-        - Mean |w| on active days small (~few % notional), and activation rate around ~60%.
-      Acceptance criteria:
-        - If Sharpe < 2.3, investigate (i) overlap stitching, (ii) unit-notional sleeve definition, (iii) stop execution timing, (iv) cost application on Δw_exec vs Δw_target.
+This repository **does not ship proprietary market data**.
 
-    D) Benchmark neutrality & alpha significance
-      Run: scripts/07_report.py includes regression table.
-      Expected:
-        - β near 0 (paper ~0.03) and very low R^2 (~0.001).
-        - Positive annualized α with HAC t-stats materially > 2 (depending on NW lags).
-      Validate sensitivity:
-        - Re-run with nw_lags ∈ {5,10,20}; β should remain near 0.
+All experiments assume a **user-provided CME Gold (GC) futures continuous series**.
+A **reference data schema and build pipeline** are provided to ensure reproducibility.
 
-    E) Robustness & falsification suite
-      1) Latency: scripts/03_latency.py with delays {0,1,2}
-        - Sharpe should remain strong; paper suggests still >~2 at T+2.
-      2) Signal reversal:
-        - Multiply w_target by -1 (or flip entry condition): expect strongly negative Sharpe (~ -2 to -3).
-      3) Ablations:
-        - Remove slope (set p_trend=0.5 constant) → Sharpe drops meaningfully.
-        - Remove momentum (set m_t=0.5 or ω=1) → degradation.
-      4) Cost/impact stress grid:
-        - Multiply k and γ by {0.5,1.0,1.5,2.0}; expect monotone Sharpe degradation and near break-even by ~1.5–2.0×.
+---
 
-    F) Statistical falsification: bootstrap CI + SPA/Reality Check
-      1) Block bootstrap Sharpe CI:
-        - B=1000, block_len=20; expected CI around [2.49, 3.27] for baseline Sharpe (approx).
-      2) SPA/RC:
-        - Run 64-config grid; stationary bootstrap B=800, block_len=20.
-        - Expected p-value very small (paper ~0.000); accept p<0.01.
+## 1) Environment
 
-    G) Capacity reproduction
-      Run: scripts/06_capacity.py
-      Expected:
-        - g(L) positive for a range of small L; compute L_max where g(L)=0.
-        - AUM mapping yields order-of-magnitude ~$0.8–1.0B under conservative ADV/turnover assumptions.
-      Cross-check:
-        - Report participation distribution q_t at A={100M,500M,1B} and ensure it stays plausible (e.g., median q < 1%).
+Python **3.11** recommended (3.10 acceptable).
 
-  environment_setup: |
-    Language: Python 3.11 (3.10 acceptable).
-    Core deps:
-      - numpy>=1.26
-      - pandas>=2.1
-      - scipy>=1.11 (root finding, stats utilities)
-      - statsmodels>=0.14 (HAC/Newey–West regression; optional but recommended)
-      - pyyaml>=6.0 (configs)
-      - pyarrow>=14 (Parquet IO)
-      - matplotlib>=3.8 (figures), seaborn>=0.13 (optional)
-      - tqdm>=4.66 (progress)
-      - pytest>=7.4 (tests)
-    Optional acceleration:
-      - numba>=0.59 (speed up daily loop)
-    Hardware:
-      - CPU-only sufficient; 16GB RAM recommended for running SPA grids + bootstraps faster.
-    Reproducibility:
-      - Fix random seeds for bootstraps (src/ftf/utils/seed.py).
-      - Persist all intermediate artifacts (prepared data, per-anchor params, daily logs) to /reports or /data/processed.
+Create environment and install dependencies:
 
-  implementation_strategy: |
-    Phase 1 — Skeleton & deterministic daily loop
-      1) Implement data loaders + calendar alignment; write data validation checks.
-      2) Implement a minimal backtest engine (trading/engine.py) that:
-         - reads a prepared continuous close series,
-         - supports execution lag buffer,
-         - computes gross_ret and turnover-based costs,
-         - outputs a net_ret series.
-      3) Add structured logging (trading/logs.py) early; it is essential for debugging reproducibility.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r ftf_repro/requirements.txt
+Run tests:
 
-    Phase 2 — Signals, ATR exits, and risk targeting
-      4) Implement EMA trend + z-score mapping + momentum + p_bull blend exactly.
-      5) Implement ATR(14) + state machine exits (hard/trailing/timeout, plus pbear de-risk).
-      6) Implement EWMA variance + w_vol and confidence shaping w_conf.
-      7) Write unit tests for EMA, ATR, and no-lookahead invariants.
+pytest -q
+2) Data format (inputs)
+2.1 Contract bars (per contract)
+One file per contract (CSV or Parquet).
 
-    Phase 3 — Kelly sizing & training-only estimation
-      8) Implement unit-notional sleeve simulator on training data (fixed weight 1 with same entry/exit).
-      9) Implement closed-form friction-adjusted Kelly solver and verify against numerical maximization tests.
-      10) Implement policy_weight combiner (f_tilde, baseline floor, Wmax cap) and verify magnitudes.
+Required columns:
 
-    Phase 4 — Walk-forward orchestration with freezing and stitching
-      11) Implement schedule builder (10y/6m/1m).
-      12) Implement trainer:
-          - start with FIXED parameters (λ=0.94, θ=0.94, ω=0.6, pbull=0.52) to stabilize.
-          - then add GRID mode; ensure it is strictly train-only and saves chosen params.
-      13) Implement runner stitching (recommended: keep only first month of each test slice) and produce one canonical OOS series.
+close (or configured data.price_col)
 
-    Phase 5 — Metrics, regression, bootstrap, and reporting
-      14) Implement performance metrics and active-day decomposition; match paper’s definitions via config.
-      15) Implement HAC regression using statsmodels; add tests comparing to statsmodels reference.
-      16) Implement block bootstrap Sharpe CI and stationary bootstrap utilities.
+high (data.high_col)
 
-    Phase 6 — Robustness grids, SPA/Reality Check, and capacity
-      17) Implement latency/cost stress scripts that reuse the same pipeline and differ only by config.
-      18) Implement SPA/RC runner:
-          - define grid, compute per-config performance series, bootstrap p-values.
-      19) Implement capacity growth curve g(L), root solve for L_max, and participation-to-AUM mapping.
+low (data.low_col)
 
-    Phase 7 — Final reproducibility hardening (before README/requirements)
-      20) Add end-to-end regression tests:
-          - run a short historical slice with fixed params and assert stable summary stats within tolerances.
-      21) Ensure every experiment script writes:
-          - config snapshot, git hash (if applicable), per-anchor frozen params, and outputs to reports/.
-      22) Only after outputs stabilize: write README.md (run commands + data format spec) and requirements.txt.
-```
+Optional:
+
+open (data.open_col)
+
+volume (data.volume_col)
+
+adv (data.adv_col) — contracts/day
+
+Index / date column:
+
+Daily dates
+
+Timezone-naive, normalized to midnight
+
+2.2 Contract metadata
+Single CSV or Parquet file with at least:
+
+contract (string; must match filename stem)
+
+fnd (first notice date)
+
+2.3 LBMA spot (optional, benchmark only)
+CSV or Parquet with:
+
+date column
+
+price column (default: price)
+
+Used only for regression benchmarking, never for trading decisions.
+
+3) Pipeline: build continuous futures
+Build a continuous front-month GC series, rolling 2 business days before FND:
+
+python ftf_repro/scripts/01_build_data.py \
+  --contracts_dir /path/to/contracts/ \
+  --metadata_path /path/to/contract_metadata.parquet \
+  --out_dir ftf_repro/data/processed
+Outputs:
+
+gc_continuous.parquet — continuous OHLC (+ optional vol / adv)
+
+active_contract.parquet
+
+roll_table.parquet
+
+validation_report.json
+
+gc_continuous.parquet is treated as the immutable source for all experiments.
+
+4) Run baseline FAST walk-forward OOS
+Run the baseline configuration:
+
+python ftf_repro/scripts/02_run_fast_oos.py \
+  --config ftf_repro/configs/base_fast.yaml \
+  --processed_path ftf_repro/data/processed/gc_continuous.parquet \
+  --out_dir ftf_repro/reports/base_fast
+Key outputs
+config_snapshot.yaml — frozen parameters
+
+reports/oos_daily.parquet — stitched daily out-of-sample log
+
+reports/oos_summary.json — performance summary
+
+artifacts/anchors/<anchor_date>/... — per-anchor frozen params and logs
+
+Timing convention (critical)
+w_target[t]: decision-time target at close of day t
+
+w_exec[t] = w_target[t - exec_lag] (default exec_lag = 1)
+
+P&L attribution:
+
+gross_ret[t] = w_exec[t-1] * r[t]
+
+costs charged on executed turnover: |w_exec[t] - w_exec[t-1]|
+
+net_ret[t] = gross_ret[t] - costs[t]
+
+OOS stitching (critical)
+Default: FIRST_STEP_ONLY
+
+Ensures non-overlapping, canonical OOS evaluation
+
+5) Robustness scripts
+These scripts are not part of daily iteration.
+They are used to validate that performance is not an artifact of ideal assumptions.
+
+5.1 Latency sensitivity
+python ftf_repro/scripts/03_latency.py \
+  --config ftf_repro/configs/base_fast.yaml \
+  --grid ftf_repro/configs/grids/latency_grid.yaml \
+  --processed_path ftf_repro/data/processed/gc_continuous.parquet \
+  --out_dir ftf_repro/reports/latency_grid
+Tests T+0 / T+1 / T+2 execution delay robustness.
+
+5.2 Cost & impact stress grid
+python ftf_repro/scripts/04_cost_impact.py \
+  --config ftf_repro/configs/base_fast.yaml \
+  --grid ftf_repro/configs/grids/cost_impact_grid.yaml \
+  --processed_path ftf_repro/data/processed/gc_continuous.parquet \
+  --out_dir ftf_repro/reports/cost_impact_grid
+Evaluates Sharpe decay under scaled linear cost and market impact.
+
+5.3 SPA / White Reality Check
+python ftf_repro/scripts/05_spa.py \
+  --config ftf_repro/configs/base_fast.yaml \
+  --grid ftf_repro/configs/grids/spa_grid.yaml \
+  --processed_path ftf_repro/data/processed/gc_continuous.parquet \
+  --out_dir ftf_repro/reports/spa
+Final statistical validation against data-snooping bias.
+
+6) Capacity analysis
+Requires adv in the processed continuous dataset.
+
+python ftf_repro/scripts/06_capacity.py \
+  --run_dir ftf_repro/reports/base_fast \
+  --out_dir ftf_repro/reports/capacity
+Outputs:
+
+growth curve in leverage space
+
+AUM mapping under a participation cap (default 1%)
+
+7) Reporting
+Generate a compact report bundle:
+
+python ftf_repro/scripts/07_report.py \
+  --run_dir ftf_repro/reports/base_fast \
+  --out_dir ftf_repro/reports/report
+With LBMA spot regression:
+
+python ftf_repro/scripts/07_report.py \
+  --run_dir ftf_repro/reports/base_fast \
+  --lbma_path /path/to/lbma_spot.parquet \
+  --out_dir ftf_repro/reports/report
+8) Notes / design choices
+Calendar: NYSE-like business calendar (US Federal holidays)
+
+ATR: simple rolling-mean ATR(14), not Wilder smoothing
+
+Stops:
+
+triggered at close t
+
+baseline exit via exec_lag (T+1)
+
+alternative fill policies configurable
+
+Trainer:
+
+FIXED: canonical constants
+
+GRID: training-only grid search
+
+objective: best train net Sharpe
+
+tie-breaker: lower turnover
+
+License / disclaimer
+This repository is research and reproduction code only.
+
+It is not investment advice.
+No guarantees are made regarding correctness, performance, or suitability.
+You are responsible for validating data quality, assumptions, execution, and regulatory compliance.
