@@ -266,13 +266,39 @@ def run_walkforward(
             out_path / "reports" / "walkforward_meta.json",
         )
         # ===== after finishing all anchors: stitch OOS =====
-    stitched = _stitch_first_step_only(engines, anchors, cfg=cfg)
-
-    oos_net_ret = stitched["net_ret"].copy()
-    oos_gross_ret = stitched["gross_ret"].copy()
-
     # ===== after finishing all anchors: stitch OOS =====
     stitched = _stitch_first_step_only(engines, anchors, cfg=cfg)
+
+    # ------------------------------------------------------------
+    # Attach market columns needed for capacity (price / volume / adv)
+    # (only if missing; avoid overlap errors)
+    # ------------------------------------------------------------
+    price_col = cfg.data.price_col
+    vol_col = getattr(cfg.data, "volume_col", "volume")
+    adv_col = cfg.data.adv_col
+
+    # build ADV in tmp if missing but volume exists
+    tmp = df_cont.copy()
+    if adv_col not in tmp.columns and vol_col in tmp.columns:
+        tmp[adv_col] = (
+            tmp[vol_col]
+            .astype(float)
+            .rolling(window=20, min_periods=1)
+            .mean()
+        )
+
+    # join only columns missing in stitched
+    join_cols = []
+    for c in [price_col, vol_col, adv_col]:
+        if c in tmp.columns and c not in stitched.columns:
+            join_cols.append(c)
+
+    if join_cols:
+        stitched = stitched.join(tmp[join_cols], how="left")
+
+    missing_after = [c for c in [price_col, vol_col, adv_col] if c not in stitched.columns]
+    if missing_after:
+        print(f"[WARN] After join, missing columns in stitched: {missing_after}")
 
     # ------------------------------------------------------------------
     # NEW: unit-notional sleeve return (paper capacity input)
@@ -318,4 +344,5 @@ def run_walkforward(
         per_anchor=engines,
         frozen_params=frozen_params,
     )
+
 
