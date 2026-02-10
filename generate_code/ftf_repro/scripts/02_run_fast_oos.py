@@ -152,7 +152,7 @@ def main() -> None:
     seed = int(args.seed) if args.seed is not None else int(cfg.bootstrap.seed)
     set_global_seed(seed)
 
-    df_cont = load_parquet(args.data)
+    df_cont = load_parquet(args.data).sort_index()
 
     res = run_walkforward(df_cont=df_cont, cfg=cfg, out_dir=out_dir)
 
