@@ -1,0 +1,209 @@
+{
+  "header": {
+    "run_name": "base_fast",
+    "time": {
+      "exec_lag": 1,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.00030949660591484367,
+      "slope_sigma": 0.0015092014797351142,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 8.656694340305831e-05,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 1.6132707076416758e-06
+    },
+    "costs": {
+      "k_linear": 7e-05,
+      "gamma_impact": 0.02
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2025-02-05",
+    "train_start": "2015-02-02",
+    "train_end": "2025-02-05",
+    "test_start": "2025-02-05",
+    "test_end": "2025-08-07",
+    "trainer_mode": "FIXED"
+  },
+  "events": [
+    {
+      "date": "2025-04-20",
+      "event": "ENTRY",
+      "price": 3425.3,
+      "info": {
+        "entry_price": 3425.3
+      }
+    },
+    {
+      "date": "2025-04-30",
+      "event": "EXIT_HARD_STOP",
+      "price": 3222.2,
+      "info": {
+        "age_days": 8
+      }
+    },
+    {
+      "date": "2025-05-01",
+      "event": "ENTRY",
+      "price": 3243.3,
+      "info": {
+        "entry_price": 3243.3
+      }
+    },
+    {
+      "date": "2025-05-11",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3228.0,
+      "info": {
+        "age_days": 6
+      }
+    },
+    {
+      "date": "2025-05-12",
+      "event": "ENTRY",
+      "price": 3247.8,
+      "info": {
+        "entry_price": 3247.8
+      }
+    },
+    {
+      "date": "2025-06-23",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3333.9,
+      "info": {
+        "age_days": 28
+      }
+    },
+    {
+      "date": "2025-06-24",
+      "event": "ENTRY",
+      "price": 3343.1,
+      "info": {
+        "entry_price": 3343.1
+      }
+    },
+    {
+      "date": "2025-06-29",
+      "event": "DERISK_HALF_ON",
+      "price": 3307.7,
+      "info": {
+        "p_bear": 0.7548248512817474
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "event": "DERISK_HALF_OFF",
+      "price": 3349.8,
+      "info": {
+        "p_bear": 0.3024840083028293
+      }
+    },
+    {
+      "date": "2025-07-01",
+      "event": "DERISK_HALF_ON",
+      "price": 3359.7,
+      "info": {
+        "p_bear": 0.6918332085288084
+      }
+    },
+    {
+      "date": "2025-07-03",
+      "event": "DERISK_HALF_OFF",
+      "price": 3342.8,
+      "info": {
+        "p_bear": 0.3140237271426205
+      }
+    },
+    {
+      "date": "2025-07-07",
+      "event": "DERISK_HALF_ON",
+      "price": 3316.9,
+      "info": {
+        "p_bear": 0.7453357200314601
+      }
+    },
+    {
+      "date": "2025-07-08",
+      "event": "DERISK_HALF_OFF",
+      "price": 3321.0,
+      "info": {
+        "p_bear": 0.3389348197623022
+      }
+    },
+    {
+      "date": "2025-07-09",
+      "event": "DERISK_HALF_ON",
+      "price": 3325.7,
+      "info": {
+        "p_bear": 0.732206715539389
+      }
+    },
+    {
+      "date": "2025-07-10",
+      "event": "DERISK_HALF_OFF",
+      "price": 3364.0,
+      "info": {
+        "p_bear": 0.285981748406718
+      }
+    },
+    {
+      "date": "2025-07-17",
+      "event": "DERISK_HALF_ON",
+      "price": 3358.3,
+      "info": {
+        "p_bear": 0.6982481071682227
+      }
+    },
+    {
+      "date": "2025-07-20",
+      "event": "DERISK_HALF_OFF",
+      "price": 3406.4,
+      "info": {
+        "p_bear": 0.2430459929853408
+      }
+    },
+    {
+      "date": "2025-07-24",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3335.6,
+      "info": {
+        "age_days": 21
+      }
+    },
+    {
+      "date": "2025-07-29",
+      "event": "ENTRY",
+      "price": 3352.8,
+      "info": {
+        "entry_price": 3352.8
+      }
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "header": {
+    "run_name": "base_fast",
+    "time": {
+      "exec_lag": 1,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FIRST_STEP_ONLY"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.0003306407921690149,
+      "slope_sigma": 0.001506880372123991,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 8.699739503699202e-05,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 1.7796477813994975e-06
+    },
+    "costs": {
+      "k_linear": 7e-05,
+      "gamma_impact": 0.02
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2024-11-04",
+    "train_start": "2014-10-30",
+    "train_end": "2024-11-04",
+    "test_start": "2024-11-04",
+    "test_end": "2025-05-07",
+    "trainer_mode": "FIXED"
+  },
+  "events": [
+    {
+      "date": "2025-01-19",
+      "event": "ENTRY",
+      "price": 2759.2,
+      "info": {
+        "entry_price": 2759.2
+      }
+    },
+    {
+      "date": "2025-02-27",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 2848.5,
+      "info": {
+        "age_days": 27
+      }
+    },
+    {
+      "date": "2025-03-02",
+      "event": "ENTRY",
+      "price": 2901.1,
+      "info": {
+        "entry_price": 2901.1
+      }
+    },
+    {
+      "date": "2025-04-03",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3035.4,
+      "info": {
+        "age_days": 24
+      }
+    },
+    {
+      "date": "2025-04-08",
+      "event": "ENTRY",
+      "price": 3079.4,
+      "info": {
+        "entry_price": 3079.4
+      }
+    },
+    {
+      "date": "2025-04-30",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3222.2,
+      "info": {
+        "age_days": 15
+      }
+    },
+    {
+      "date": "2025-05-01",
+      "event": "ENTRY",
+      "price": 3243.3,
+      "info": {
+        "entry_price": 3243.3
+      }
+    }
+  ]
+}

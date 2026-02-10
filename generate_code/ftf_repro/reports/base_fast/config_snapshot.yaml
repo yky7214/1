@@ -1,0 +1,64 @@
+time:
+  exec_lag: 1
+  stop_fill_policy: STOP_FILL_T_PLUS_1
+  stitch_rule: FIRST_STEP_ONLY
+data:
+  tz_naive_dates: true
+  calendar: NYSE
+  roll_bd_before_fnd: 2
+  price_col: close
+  high_col: high
+  low_col: low
+  open_col: open
+  volume_col: volume
+  adv_col: adv
+  contract_multiplier: 100.0
+signal:
+  ema_lambda: 0.94
+  momentum_k: 50
+  blend_omega: 0.6
+  pbull_threshold: 0.52
+  z_clip:
+  - -3.0
+  - 3.0
+risk:
+  ewma_theta: 0.94
+  vol_target_annual: 0.15
+  w_max: 2.0
+atr_exit:
+  atr_window: 14
+  hard_stop_atr: 2.0
+  trailing_stop_atr: 1.5
+  timeout_days: 30
+  price_reference_for_peak: close
+  derisk_policy: DERISK_HALF
+costs:
+  k_linear: 7.0e-05
+  gamma_impact: 0.02
+kelly:
+  lambda_kelly: 0.4
+  baseline_floor: 0.25
+  baseline_floor_mode: FLOOR_ON_WVOL
+  baseline_floor_eps: 1.0e-06
+walkforward:
+  train_bd: 2520
+  test_bd: 126
+  step_bd: 21
+  anchor_start: '2015-01-01'
+  anchor_end: '2025-10-14'
+  trainer_mode: FIXED
+regression:
+  nw_lags: 10
+  nw_lags_sensitivity:
+  - 5
+  - 10
+  - 20
+bootstrap:
+  block_bootstrap_B: 1000
+  block_len: 20
+  stationary_bootstrap_B: 800
+  stationary_mean_block: 20
+  seed: 123
+capacity:
+  participation_cap: 0.01
+run_name: base_fast

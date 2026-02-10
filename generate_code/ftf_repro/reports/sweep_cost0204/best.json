@@ -1,0 +1,8 @@
+{
+  "lambda_kelly": 0.05,
+  "w_max": 3.0,
+  "sharpe": 0.6214813211393834,
+  "maxdd": -0.035141606654281565,
+  "final_eq": 1.2009949093215762,
+  "out": "reports\\sweep_cost0204\\sweep_lam0.05_wmax3.00"
+}

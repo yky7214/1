@@ -1,0 +1,6324 @@
+'2015-01-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00041598030575812524
+      slope_sigma: 0.0020713097679940667
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016241428835725246
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001559784001210255
+    sigma2: 1.628433959684071e-05
+    n: 1.0
+  f_star: 5.279821119531675
+  f_tilde: 2.1119284478126703
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 5.279821119531675
+    f_tilde: 2.1119284478126703
+'2015-02-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.000436814573444563
+      slope_sigma: 0.002079361586979148
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016313677235598543
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00015720940194597095
+    sigma2: 1.6324903618606778e-05
+    n: 1.0
+  f_star: 5.3421082282269365
+  f_tilde: 2.136843291290775
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 5.3421082282269365
+    f_tilde: 2.136843291290775
+'2015-03-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00040257606710426597
+      slope_sigma: 0.0020844470177637173
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001633078734509681
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00015456030796790209
+    sigma2: 1.6471792083194372e-05
+    n: 1.0
+  f_star: 5.13364347612038
+  f_tilde: 2.053457390448152
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 5.13364347612038
+    f_tilde: 2.053457390448152
+'2015-04-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0004046017336582517
+      slope_sigma: 0.0020872346959430505
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001636333751307675
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00014794389505111663
+    sigma2: 1.6380695886791058e-05
+    n: 1.0
+  f_star: 4.7582774010210676
+  f_tilde: 1.903310960408427
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.7582774010210676
+    f_tilde: 1.903310960408427
+'2015-05-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00040759096037984904
+      slope_sigma: 0.0020863789724110847
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016422715977134443
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00015626952021259967
+    sigma2: 1.624174475805679e-05
+    n: 1.0
+  f_star: 5.311591919322912
+  f_tilde: 2.124636767729165
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 5.311591919322912
+    f_tilde: 2.124636767729165
+'2015-06-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00040988833668723686
+      slope_sigma: 0.002085193189752628
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001644728896803544
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00014924230219086592
+    sigma2: 1.6097900146038967e-05
+    n: 1.0
+  f_star: 4.922524147372365
+  f_tilde: 1.969009658948946
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.922524147372365
+    f_tilde: 1.969009658948946
+'2015-07-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.000405059053802783
+      slope_sigma: 0.0020853308232479787
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016448420600178478
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013532895320459153
+    sigma2: 1.5995984898140476e-05
+    n: 1.0
+  f_star: 4.084084451229132
+  f_tilde: 1.633633780491653
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.084084451229132
+    f_tilde: 1.633633780491653
+'2015-08-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00037497178858261797
+      slope_sigma: 0.0020950561426594356
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016475229073867396
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00014159708452382032
+    sigma2: 1.5872490769228926e-05
+    n: 1.0
+  f_star: 4.510765548065175
+  f_tilde: 1.80430621922607
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.510765548065175
+    f_tilde: 1.80430621922607
+'2015-09-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00036411550882193357
+      slope_sigma: 0.0020944408447053126
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016478401579465948
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013636442972059958
+    sigma2: 1.5781985785173533e-05
+    n: 1.0
+  f_star: 4.205074736725844
+  f_tilde: 1.6820298946903376
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.205074736725844
+    f_tilde: 1.6820298946903376
+'2015-10-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00034008131896412275
+      slope_sigma: 0.0020922812041395135
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016503598561478107
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001268749130969226
+    sigma2: 1.5409165212560766e-05
+    n: 1.0
+  f_star: 3.6909795120219164
+  f_tilde: 1.4763918048087668
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.6909795120219164
+    f_tilde: 1.4763918048087668
+'2015-11-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00036418905680054865
+      slope_sigma: 0.002098146985355413
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.000165007365111227
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010806513844333448
+    sigma2: 1.5033908475252965e-05
+    n: 1.0
+  f_star: 2.53195225353359
+  f_tilde: 1.0127809014134361
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.53195225353359
+    f_tilde: 1.0127809014134361
+'2015-12-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002943455727793152
+      slope_sigma: 0.0020835655317398443
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.000164872091261454
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011956156821256152
+    sigma2: 1.5229340875567804e-05
+    n: 1.0
+  f_star: 3.2543475530232815
+  f_tilde: 1.3017390212093127
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.2543475530232815
+    f_tilde: 1.3017390212093127
+'2016-01-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00026954130468047355
+      slope_sigma: 0.0020710109684075294
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016419423776049637
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011962679338218754
+    sigma2: 1.5317711320484718e-05
+    n: 1.0
+  f_star: 3.23983083006797
+  f_tilde: 1.295932332027188
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.23983083006797
+    f_tilde: 1.295932332027188
+'2016-02-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00026121756466281916
+      slope_sigma: 0.002071073426688914
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001633243561230427
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010231530994192499
+    sigma2: 1.4870343253642005e-05
+    n: 1.0
+  f_star: 2.1731381307563575
+  f_tilde: 0.8692552523025431
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.1731381307563575
+    f_tilde: 0.8692552523025431
+'2016-03-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00030718455864912875
+      slope_sigma: 0.002097786144740696
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016415574985176513
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011693153488968542
+    sigma2: 1.4480937778966034e-05
+    n: 1.0
+  f_star: 3.240918206129909
+  f_tilde: 1.2963672824519636
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.240918206129909
+    f_tilde: 1.2963672824519636
+'2016-04-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002834500079967404
+      slope_sigma: 0.0020710592402930477
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016409872491516202
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010665220102867134
+    sigma2: 1.4779329213497214e-05
+    n: 1.0
+  f_star: 2.4799637723205152
+  f_tilde: 0.9919855089282061
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.4799637723205152
+    f_tilde: 0.9919855089282061
+'2016-05-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00021729494012225233
+      slope_sigma: 0.002086707574302778
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00016255795955810774
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011617654515623623
+    sigma2: 1.5039828681156792e-05
+    n: 1.0
+  f_star: 3.0702839862857103
+  f_tilde: 1.2281135945142843
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.0702839862857103
+    f_tilde: 1.2281135945142843
+'2016-06-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00028230782276414607
+      slope_sigma: 0.002019910092612314
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015930673417461296
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011384353752018217
+    sigma2: 1.5126523181941414e-05
+    n: 1.0
+  f_star: 2.8984543898709103
+  f_tilde: 1.1593817559483641
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.8984543898709103
+    f_tilde: 1.1593817559483641
+'2016-07-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002670535675711757
+      slope_sigma: 0.00200812035673891
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015654304509916814
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012923967252650276
+    sigma2: 1.5452405817060302e-05
+    n: 1.0
+  f_star: 3.8336860439620946
+  f_tilde: 1.5334744175848378
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.8336860439620946
+    f_tilde: 1.5334744175848378
+'2016-08-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002861118107031188
+      slope_sigma: 0.002005359724847907
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015481040465267738
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013264267258836595
+    sigma2: 1.547334523818895e-05
+    n: 1.0
+  f_star: 4.048424669913063
+  f_tilde: 1.619369867965225
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.048424669913063
+    f_tilde: 1.619369867965225
+'2016-08-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0003210467676880114
+      slope_sigma: 0.0019863935950091846
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001534404812980981
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011774524642186149
+    sigma2: 1.539007241325184e-05
+    n: 1.0
+  f_star: 3.1023405959253174
+  f_tilde: 1.240936238370127
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.1023405959253174
+    f_tilde: 1.240936238370127
+'2016-10-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0003319649375166061
+      slope_sigma: 0.0019879513478780458
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015232369379725204
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011242562182323321
+    sigma2: 1.522631209411427e-05
+    n: 1.0
+  f_star: 2.78633601892561
+  f_tilde: 1.114534407570244
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.78633601892561
+    f_tilde: 1.114534407570244
+'2016-10-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002782867599855584
+      slope_sigma: 0.0019856095775040287
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015147519529910288
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001093953933525354
+    sigma2: 1.541466458518389e-05
+    n: 1.0
+  f_star: 2.555708762576714
+  f_tilde: 1.0222835050306855
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.555708762576714
+    f_tilde: 1.0222835050306855
+'2016-11-30':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002650463969347275
+      slope_sigma: 0.0019966161442579694
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001519811377663055
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.709437274866313e-05
+    sigma2: 1.5058617264931962e-05
+    n: 1.0
+  f_star: 1.7992603352606393
+  f_tilde: 0.7197041341042558
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.7992603352606393
+    f_tilde: 0.7197041341042558
+'2017-01-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002569498858657645
+      slope_sigma: 0.002015613004737531
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015180388753837086
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001070753427893437
+    sigma2: 1.487845078692821e-05
+    n: 1.0
+  f_star: 2.491881938536038
+  f_tilde: 0.9967527754144152
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.491881938536038
+    f_tilde: 0.9967527754144152
+'2017-02-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00023003885307629343
+      slope_sigma: 0.002005903201525812
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.000151420735004946
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010140015738569993
+    sigma2: 1.4933191004094054e-05
+    n: 1.0
+  f_star: 2.1027091515196807
+  f_tilde: 0.8410836606078723
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.1027091515196807
+    f_tilde: 0.8410836606078723
+'2017-03-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00025233274077388345
+      slope_sigma: 0.0020059225733493145
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015031370058084587
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010331146569954386
+    sigma2: 1.4916574751411694e-05
+    n: 1.0
+  f_star: 2.2331846455830138
+  f_tilde: 0.8932738582332056
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.2331846455830138
+    f_tilde: 0.8932738582332056
+'2017-04-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002369595221886637
+      slope_sigma: 0.0020047464029012848
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00015029729347875557
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010938366607439463
+    sigma2: 1.4958704984614992e-05
+    n: 1.0
+  f_star: 2.6328259107256073
+  f_tilde: 1.053130364290243
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.6328259107256073
+    f_tilde: 1.053130364290243
+'2017-05-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00024914157715463765
+      slope_sigma: 0.0020032444888294855
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014993271143346309
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010674813949139274
+    sigma2: 1.5082514448422032e-05
+    n: 1.0
+  f_star: 2.436473017616596
+  f_tilde: 0.9745892070466384
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.436473017616596
+    f_tilde: 0.9745892070466384
+'2017-06-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002593285676888652
+      slope_sigma: 0.002002991518595395
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014949133458588663
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011923186004124014
+    sigma2: 1.4860975088739297e-05
+    n: 1.0
+  f_star: 3.3128283808607506
+  f_tilde: 1.3251313523443002
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.3128283808607506
+    f_tilde: 1.3251313523443002
+'2017-07-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00025340015272707034
+      slope_sigma: 0.002002891931371422
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014956458424347592
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.020271946333085e-05
+    sigma2: 1.4764171918861664e-05
+    n: 1.0
+  f_star: 1.3683611633864332
+  f_tilde: 0.5473444653545733
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.3683611633864332
+    f_tilde: 0.5473444653545733
+'2017-08-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00024620872761030045
+      slope_sigma: 0.0020044119356241834
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014893449876876797
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.516177380224321e-05
+    sigma2: 1.4634114735971152e-05
+    n: 1.0
+  f_star: 1.7193915898714884
+  f_tilde: 0.6877566359485954
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.7193915898714884
+    f_tilde: 0.6877566359485954
+'2017-08-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002353110151191384
+      slope_sigma: 0.0019884063284773185
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014827356146533018
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.620126373809855e-05
+    sigma2: 1.4167157295181383e-05
+    n: 1.0
+  f_star: 1.8494369189371729
+  f_tilde: 0.7397747675748692
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.8494369189371729
+    f_tilde: 0.7397747675748692
+'2017-10-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00022494312996013333
+      slope_sigma: 0.00198460690531641
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014810536028120262
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010218360233872667
+    sigma2: 1.4156455478388174e-05
+    n: 1.0
+  f_star: 2.2734223540532086
+  f_tilde: 0.9093689416212835
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.2734223540532086
+    f_tilde: 0.9093689416212835
+'2017-10-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00017729050905388767
+      slope_sigma: 0.0019690961157540097
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001476105864611539
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.191385598198499e-05
+    sigma2: 1.4292057267306169e-05
+    n: 1.0
+  f_star: 0.13391046132756823
+  f_tilde: 0.05356418453102729
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.13391046132756823
+    f_tilde: 0.05356418453102729
+'2017-11-30':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00018617476560815592
+      slope_sigma: 0.0019661775590972728
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014597061387756926
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 6.235785149898452e-05
+    sigma2: 1.3943198953990339e-05
+    n: 1.0
+  f_star: 0.0
+  f_tilde: 0.0
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.0
+    f_tilde: 0.0
+'2018-01-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001565534377257126
+      slope_sigma: 0.0019429477529407815
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014527074785990567
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.57979338065207e-05
+    sigma2: 1.3208538752416182e-05
+    n: 1.0
+  f_star: 0.4389534614841561
+  f_tilde: 0.17558138459366246
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.4389534614841561
+    f_tilde: 0.17558138459366246
+'2018-02-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00015031658663390977
+      slope_sigma: 0.0019376884954717811
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001441950581078513
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.890003859406014e-05
+    sigma2: 1.3448450454073345e-05
+    n: 1.0
+  f_star: 1.405369240017952
+  f_tilde: 0.5621476960071808
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.405369240017952
+    f_tilde: 0.5621476960071808
+'2018-03-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00012246544225571446
+      slope_sigma: 0.0019343198648187358
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00014363367820882729
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.745722797464449e-05
+    sigma2: 1.3789464667941304e-05
+    n: 1.0
+  f_star: 1.2659830091323458
+  f_tilde: 0.5063932036529384
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.2659830091323458
+    f_tilde: 0.5063932036529384
+'2018-04-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014725165117223694
+      slope_sigma: 0.0019164168329535583
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001411406065880803
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.184513012025313e-05
+    sigma2: 1.3797786013241348e-05
+    n: 1.0
+  f_star: 0.858480491644507
+  f_tilde: 0.34339219665780285
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.858480491644507
+    f_tilde: 0.34339219665780285
+'2018-05-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001677436383115654
+      slope_sigma: 0.001910045350544873
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00013990860813669354
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.28211446980564e-05
+    sigma2: 1.365591453409027e-05
+    n: 1.0
+  f_star: 0.20658775294864215
+  f_tilde: 0.08263510117945687
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.20658775294864215
+    f_tilde: 0.08263510117945687
+'2018-06-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001596666027912934
+      slope_sigma: 0.0019086707434363074
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.000138902793833671
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.184411852982323e-05
+    sigma2: 1.3602712035748869e-05
+    n: 1.0
+  f_star: 0.8707174347803639
+  f_tilde: 0.3482869739121456
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8707174347803639
+    f_tilde: 0.3482869739121456
+'2018-07-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00012489918349737302
+      slope_sigma: 0.0019090168645813249
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001372619539372345
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.251023578160539e-05
+    sigma2: 1.3763248198876692e-05
+    n: 1.0
+  f_star: 0.9089595421687183
+  f_tilde: 0.36358381686748736
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.9089595421687183
+    f_tilde: 0.36358381686748736
+'2018-08-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001255660562881329
+      slope_sigma: 0.0018902027564383192
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00013629076010559163
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.202823754570706e-05
+    sigma2: 1.3839800392919691e-05
+    n: 1.0
+  f_star: 0.869104842860349
+  f_tilde: 0.3476419371441396
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.869104842860349
+    f_tilde: 0.3476419371441396
+'2018-09-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00016227724998326394
+      slope_sigma: 0.0018590642223311178
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00013392895223595028
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.183662515822051e-05
+    sigma2: 1.3802154011234216e-05
+    n: 1.0
+  f_star: 0.8575926010234446
+  f_tilde: 0.3430370404093779
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8575926010234446
+    f_tilde: 0.3430370404093779
+'2018-10-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014141602796108882
+      slope_sigma: 0.00182940618871316
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001254644669881521
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.280331991987703e-05
+    sigma2: 1.4032672696223915e-05
+    n: 1.0
+  f_star: 0.9123935402072278
+  f_tilde: 0.3649574160828912
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.9123935402072278
+    f_tilde: 0.3649574160828912
+'2018-10-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00020971389601399845
+      slope_sigma: 0.0017884650668030422
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00012103065354013234
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.394972742816282e-05
+    sigma2: 1.3748190343795353e-05
+    n: 1.0
+  f_star: 1.0146591718129967
+  f_tilde: 0.4058636687251987
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.0146591718129967
+    f_tilde: 0.4058636687251987
+'2018-12-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00017613379946342447
+      slope_sigma: 0.0017471403520708502
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00011558914811292022
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.069613904306316e-05
+    sigma2: 1.3868715919373185e-05
+    n: 1.0
+  f_star: 0.050194916898595364
+  f_tilde: 0.020077966759438147
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.050194916898595364
+    f_tilde: 0.020077966759438147
+'2019-01-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014003755742276826
+      slope_sigma: 0.0017141549234687668
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00011292809240397567
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.370626176381105e-05
+    sigma2: 1.4006077798594824e-05
+    n: 1.0
+  f_star: 1.6925696190399153
+  f_tilde: 0.6770278476159661
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.6925696190399153
+    f_tilde: 0.6770278476159661
+'2019-02-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014480818661141056
+      slope_sigma: 0.0016954616396627682
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010929593926619423
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011198555517632297
+    sigma2: 1.4219997161855932e-05
+    n: 1.0
+  f_star: 2.9525712768034906
+  f_tilde: 1.1810285107213963
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.9525712768034906
+    f_tilde: 1.1810285107213963
+'2019-03-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013623073295519539
+      slope_sigma: 0.0016811026947599306
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010695898438603882
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010765908905515069
+    sigma2: 1.4619387031170615e-05
+    n: 1.0
+  f_star: 2.5759690864504887
+  f_tilde: 1.0303876345801954
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.5759690864504887
+    f_tilde: 1.0303876345801954
+'2019-04-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014818848199655456
+      slope_sigma: 0.0016746875254819247
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010274159103605323
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010698947845638304
+    sigma2: 1.4333241112226257e-05
+    n: 1.0
+  f_star: 2.580677891815481
+  f_tilde: 1.0322711567261924
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.580677891815481
+    f_tilde: 1.0322711567261924
+'2019-05-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014088268385445667
+      slope_sigma: 0.0016715849920576086
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010173686577922741
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010574777154280159
+    sigma2: 1.4390408048290118e-05
+    n: 1.0
+  f_star: 2.4841388390685117
+  f_tilde: 0.9936555356274047
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.4841388390685117
+    f_tilde: 0.9936555356274047
+'2019-06-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00010881431769927714
+      slope_sigma: 0.0016711531897995382
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010133583347245862
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010394322696838914
+    sigma2: 1.4484209803448923e-05
+    n: 1.0
+  f_star: 2.343464188174541
+  f_tilde: 0.9373856752698164
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.343464188174541
+    f_tilde: 0.9373856752698164
+'2019-07-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00015290193905430954
+      slope_sigma: 0.0016776658291998182
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010131234243696341
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001103402322563731
+    sigma2: 1.472931628323619e-05
+    n: 1.0
+  f_star: 2.7387715410989824
+  f_tilde: 1.095508616439593
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.7387715410989824
+    f_tilde: 1.095508616439593
+'2019-08-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001476236328117851
+      slope_sigma: 0.001677888517253791
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010082874360802129
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001105373552734853
+    sigma2: 1.4626044748014839e-05
+    n: 1.0
+  f_star: 2.771586985537382
+  f_tilde: 1.1086347942149528
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.771586985537382
+    f_tilde: 1.1086347942149528
+'2019-09-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00016785855402286828
+      slope_sigma: 0.0016865348063921696
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010093340408962079
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012100648014018472
+    sigma2: 1.4661200263334569e-05
+    n: 1.0
+  f_star: 3.479011214910158
+  f_tilde: 1.3916044859640633
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.479011214910158
+    f_tilde: 1.3916044859640633
+'2019-10-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00016066312302015598
+      slope_sigma: 0.0016826887809123752
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010116538732636071
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010159812636161734
+    sigma2: 1.403120053134688e-05
+    n: 1.0
+  f_star: 2.2519902192990875
+  f_tilde: 0.900796087719635
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.2519902192990875
+    f_tilde: 0.900796087719635
+'2019-10-31':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014021034439369324
+      slope_sigma: 0.0016684548775913154
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001006710628923746
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.892620966815218e-05
+    sigma2: 1.4174463897033832e-05
+    n: 1.0
+  f_star: 2.040726892973026
+  f_tilde: 0.8162907571892104
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.040726892973026
+    f_tilde: 0.8162907571892104
+'2019-12-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 7.834811644060774e-05
+      slope_sigma: 0.0016686982182590874
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010002714213741632
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010075539879978095
+    sigma2: 1.4510416475972626e-05
+    n: 1.0
+  f_star: 2.119539356482836
+  f_tilde: 0.8478157425931345
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.119539356482836
+    f_tilde: 0.8478157425931345
+'2020-01-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00011409547277212838
+      slope_sigma: 0.001641965913850843
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.859197506443787e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010819568087587073
+    sigma2: 1.444423890233437e-05
+    n: 1.0
+  f_star: 2.6443539970595356
+  f_tilde: 1.0577415988238144
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.6443539970595356
+    f_tilde: 1.0577415988238144
+'2020-02-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013093129191699566
+      slope_sigma: 0.00164590232242813
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.790745802443993e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012559086165112916
+    sigma2: 1.449619167348818e-05
+    n: 1.0
+  f_star: 3.8348597275240417
+  f_tilde: 1.5339438910096168
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.8348597275240417
+    f_tilde: 1.5339438910096168
+'2020-03-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013486480747098968
+      slope_sigma: 0.0016481093087652439
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.819951309863377e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012003339683420934
+    sigma2: 1.4659772402008731e-05
+    n: 1.0
+  f_star: 3.4129722796619677
+  f_tilde: 1.365188911864787
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.4129722796619677
+    f_tilde: 1.365188911864787
+'2020-04-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013457375995219072
+      slope_sigma: 0.0016595948578362041
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010346471077872334
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00010756198732396405
+    sigma2: 1.4626674585911359e-05
+    n: 1.0
+  f_star: 2.568046968115661
+  f_tilde: 1.0272187872462644
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.568046968115661
+    f_tilde: 1.0272187872462644
+'2020-05-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00014255947670681975
+      slope_sigma: 0.0016717061444649977
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010478790425955233
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011689618679033803
+    sigma2: 1.4505537396279121e-05
+    n: 1.0
+  f_star: 3.2329851358949013
+  f_tilde: 1.2931940543579605
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.2329851358949013
+    f_tilde: 1.2931940543579605
+'2020-06-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013595966198230781
+      slope_sigma: 0.0016690967206117113
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001048588479309195
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011315484411007628
+    sigma2: 1.4667606176896256e-05
+    n: 1.0
+  f_star: 2.9421872655711074
+  f_tilde: 1.176874906228443
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.9421872655711074
+    f_tilde: 1.176874906228443
+'2020-07-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00015082404080744957
+      slope_sigma: 0.0016682295004794615
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001045538125245063
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011583798369662143
+    sigma2: 1.4551544181195253e-05
+    n: 1.0
+  f_star: 3.150042574578249
+  f_tilde: 1.2600170298312996
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.150042574578249
+    f_tilde: 1.2600170298312996
+'2020-08-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00017282584251487716
+      slope_sigma: 0.001685326724753419
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010447481264393618
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011307803119615021
+    sigma2: 1.4123612834748074e-05
+    n: 1.0
+  f_star: 3.0500716566065944
+  f_tilde: 1.2200286626426378
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.0500716566065944
+    f_tilde: 1.2200286626426378
+'2020-09-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001727951689731227
+      slope_sigma: 0.001694781035177404
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010646842200481123
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001086741938514845
+    sigma2: 1.4581888918031914e-05
+    n: 1.0
+  f_star: 2.6522074107737943
+  f_tilde: 1.0608829643095177
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.6522074107737943
+    f_tilde: 1.0608829643095177
+'2020-10-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00015035909852683396
+      slope_sigma: 0.0016865656597345997
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010701403985577869
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001044662394780092
+    sigma2: 1.4671751838790241e-05
+    n: 1.0
+  f_star: 2.349156382735759
+  f_tilde: 0.9396625530943036
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.349156382735759
+    f_tilde: 0.9396625530943036
+'2020-11-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001352663119991434
+      slope_sigma: 0.0016834082672590547
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010659826877828549
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001116145652097376
+    sigma2: 1.456899420852626e-05
+    n: 1.0
+  f_star: 2.856378732403049
+  f_tilde: 1.1425514929612197
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.856378732403049
+    f_tilde: 1.1425514929612197
+'2020-12-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001170739201671911
+      slope_sigma: 0.0016872163100826137
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010723782514756615
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011359038933245138
+    sigma2: 1.465627676955365e-05
+    n: 1.0
+  f_star: 2.97417891445693
+  f_tilde: 1.1896715657827721
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.97417891445693
+    f_tilde: 1.1896715657827721
+'2021-01-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00010841554277710244
+      slope_sigma: 0.0016916902345702116
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010711960091050879
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011394144890476254
+    sigma2: 1.4423021558645603e-05
+    n: 1.0
+  f_star: 3.046618818816276
+  f_tilde: 1.2186475275265105
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.046618818816276
+    f_tilde: 1.2186475275265105
+'2021-02-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013271144265041633
+      slope_sigma: 0.001690582395289144
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010770699277537032
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.594205844318505e-05
+    sigma2: 1.4281129786573567e-05
+    n: 1.0
+  f_star: 1.8165270416892736
+  f_tilde: 0.7266108166757095
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.8165270416892736
+    f_tilde: 0.7266108166757095
+'2021-03-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 9.082500283770151e-05
+      slope_sigma: 0.0016883078443251638
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001083173146529715
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.999940280929317e-05
+    sigma2: 1.4034635334209104e-05
+    n: 1.0
+  f_star: 2.1375263478467663
+  f_tilde: 0.8550105391387066
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.1375263478467663
+    f_tilde: 0.8550105391387066
+'2021-04-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 7.747133617555216e-05
+      slope_sigma: 0.0016935714714551517
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010846623871299101
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.489345548691873e-05
+    sigma2: 1.3972142583259445e-05
+    n: 1.0
+  f_star: 1.7816491163455868
+  f_tilde: 0.7126596465382348
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.7816491163455868
+    f_tilde: 0.7126596465382348
+'2021-05-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 6.002458083262472e-05
+      slope_sigma: 0.0016851536922008023
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010833584858488782
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.629242646438721e-05
+    sigma2: 1.3943692053167267e-05
+    n: 1.0
+  f_star: 1.8856143956804448
+  f_tilde: 0.754245758272178
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.8856143956804448
+    f_tilde: 0.754245758272178
+'2021-06-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 7.0771474397878e-05
+      slope_sigma: 0.0016932035680916862
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.0001082827030227359
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 6.918436366824673e-05
+    sigma2: 1.3190982221837169e-05
+    n: 1.0
+  f_star: 0.0
+  f_tilde: 0.0
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.0
+    f_tilde: 0.0
+'2021-07-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 7.238374291855948e-05
+      slope_sigma: 0.0017026857358986365
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.000108722689945747
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 6.730290128265918e-05
+    sigma2: 1.2111693833756172e-05
+    n: 1.0
+  f_star: 0.0
+  f_tilde: 0.0
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.0
+    f_tilde: 0.0
+'2021-08-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 3.333772987435328e-05
+      slope_sigma: 0.0016606824443331084
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010856093992596999
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.55628661369875e-05
+    sigma2: 1.2322907837698662e-05
+    n: 1.0
+  f_star: 0.4514247943954747
+  f_tilde: 0.1805699177581899
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.4514247943954747
+    f_tilde: 0.1805699177581899
+'2021-09-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: -6.77173413706082e-06
+      slope_sigma: 0.001647447463546308
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010609958677722829
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.70926117772277e-05
+    sigma2: 1.2536599330061494e-05
+    n: 1.0
+  f_star: 0.5657524493281317
+  f_tilde: 0.2263009797312527
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.5657524493281317
+    f_tilde: 0.2263009797312527
+'2021-10-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 2.7219832144437397e-05
+      slope_sigma: 0.0016143728582302397
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010208209040498258
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.392220463804601e-05
+    sigma2: 1.2613995054171575e-05
+    n: 1.0
+  f_star: 0.31094071475388013
+  f_tilde: 0.12437628590155206
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.31094071475388013
+    f_tilde: 0.12437628590155206
+'2021-11-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 1.5845488366514022e-05
+      slope_sigma: 0.0016072186540025868
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 0.00010083891015542191
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.566271065726937e-05
+    sigma2: 1.2745563566427136e-05
+    n: 1.0
+  f_star: 0.4442887619489357
+  f_tilde: 0.1777155047795743
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.4442887619489357
+    f_tilde: 0.1777155047795743
+'2021-12-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 1.4765578145464649e-05
+      slope_sigma: 0.0016085705463943839
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.992221141013179e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.111024106028838e-05
+    sigma2: 1.2900293524241363e-05
+    n: 1.0
+  f_star: 0.08606324020473591
+  f_tilde: 0.03442529608189437
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.08606324020473591
+    f_tilde: 0.03442529608189437
+'2022-01-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 4.668653911050099e-05
+      slope_sigma: 0.0015916508400468847
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.82604541525394e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.061033170050595e-05
+    sigma2: 1.2502047892562635e-05
+    n: 1.0
+  f_star: 0.8486874943758577
+  f_tilde: 0.33947499775034307
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8486874943758577
+    f_tilde: 0.33947499775034307
+'2022-02-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 1.1646291274871122e-05
+      slope_sigma: 0.0015796949977522528
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.835466500805873e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.069767999191543e-05
+    sigma2: 1.2887654365422e-05
+    n: 1.0
+  f_star: 0.8300719191086983
+  f_tilde: 0.33202876764347933
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8300719191086983
+    f_tilde: 0.33202876764347933
+'2022-03-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 3.612698174443109e-05
+      slope_sigma: 0.0015776340344504387
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.786728074942877e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.463499961549673e-05
+    sigma2: 1.31117566204962e-05
+    n: 1.0
+  f_star: 1.878848145868379
+  f_tilde: 0.7515392583473517
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.878848145868379
+    f_tilde: 0.7515392583473517
+'2022-04-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 5.5781036711167757e-05
+      slope_sigma: 0.0015846786066945593
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.833324102222531e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.441719765185785e-05
+    sigma2: 1.3450601446509302e-05
+    n: 1.0
+  f_star: 1.815323853655229
+  f_tilde: 0.7261295414620916
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.815323853655229
+    f_tilde: 0.7261295414620916
+'2022-05-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 6.436948868604221e-05
+      slope_sigma: 0.0015827506931212483
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.820047973175005e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.160204469578964e-05
+    sigma2: 1.3496041844521577e-05
+    n: 1.0
+  f_star: 1.6006207556742664
+  f_tilde: 0.6402483022697066
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.6006207556742664
+    f_tilde: 0.6402483022697066
+'2022-06-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 5.789124940955891e-05
+      slope_sigma: 0.0015832865335684643
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.716945194148225e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.389451989779564e-05
+    sigma2: 1.3503894550089847e-05
+    n: 1.0
+  f_star: 1.7694539756041459
+  f_tilde: 0.7077815902416584
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.7694539756041459
+    f_tilde: 0.7077815902416584
+'2022-07-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 4.9236244382143964e-05
+      slope_sigma: 0.0015841908810062754
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.625499586662987e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.042128461898838e-05
+    sigma2: 1.3174647883426491e-05
+    n: 1.0
+  f_star: 0.031976916781081936
+  f_tilde: 0.012790766712432775
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.031976916781081936
+    f_tilde: 0.012790766712432775
+'2022-08-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 4.170284375828925e-05
+      slope_sigma: 0.0015984795818050404
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.632123930308688e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.702500339366442e-05
+    sigma2: 1.2953260563041376e-05
+    n: 1.0
+  f_star: 0.5423347549811799
+  f_tilde: 0.21693390199247198
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.5423347549811799
+    f_tilde: 0.21693390199247198
+'2022-09-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 1.771516880253788e-05
+      slope_sigma: 0.0015835593003426449
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.62955256283288e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.970222828790807e-05
+    sigma2: 1.3131055249388208e-05
+    n: 1.0
+  f_star: 0.7388765109613042
+  f_tilde: 0.2955506043845217
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.7388765109613042
+    f_tilde: 0.2955506043845217
+'2022-10-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: -1.6318293142463715e-05
+      slope_sigma: 0.0015870708359395141
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.6532915424176e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.88840158202093e-05
+    sigma2: 1.3275206803724277e-05
+    n: 1.0
+  f_star: 0.6692186382902112
+  f_tilde: 0.2676874553160845
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.6692186382902112
+    f_tilde: 0.2676874553160845
+'2022-11-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: -1.0578570203321465e-05
+      slope_sigma: 0.001585888320085218
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.691564770761701e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.414151520228709e-05
+    sigma2: 1.3286414648721779e-05
+    n: 1.0
+  f_star: 0.31171051873543104
+  f_tilde: 0.12468420749417242
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.31171051873543104
+    f_tilde: 0.12468420749417242
+'2022-12-01':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 3.4546691491440125e-06
+      slope_sigma: 0.0015938036184723252
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.753822634118274e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.838870599016365e-05
+    sigma2: 1.3352658531435483e-05
+    n: 1.0
+  f_star: 0.628242381126916
+  f_tilde: 0.2512969524507664
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.628242381126916
+    f_tilde: 0.2512969524507664
+'2023-01-03':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 2.2993584627844086e-05
+      slope_sigma: 0.0015993701732934576
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.783403888240821e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.092805989437361e-05
+    sigma2: 1.3451341299464057e-05
+    n: 1.0
+  f_star: 0.812414141540593
+  f_tilde: 0.3249656566162372
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.812414141540593
+    f_tilde: 0.3249656566162372
+'2023-02-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 4.755789616362842e-05
+      slope_sigma: 0.0016125358717907798
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.765713453520855e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.151596191715744e-05
+    sigma2: 1.3414468209043338e-05
+    n: 1.0
+  f_star: 1.6039370015914978
+  f_tilde: 0.6415748006365991
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.6039370015914978
+    f_tilde: 0.6415748006365991
+'2023-03-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 6.575674478059448e-05
+      slope_sigma: 0.0015989743772530179
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.75875286895134e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.948733810110947e-05
+    sigma2: 1.361895745255307e-05
+    n: 1.0
+  f_star: 0.6966273398064647
+  f_tilde: 0.2786509359225859
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.6966273398064647
+    f_tilde: 0.2786509359225859
+'2023-04-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 8.668105129128467e-05
+      slope_sigma: 0.0015978607038939555
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.899994704638331e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.203191408864505e-05
+    sigma2: 1.3876909260162616e-05
+    n: 1.0
+  f_star: 1.5876672301874577
+  f_tilde: 0.6350668920749831
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.5876672301874577
+    f_tilde: 0.6350668920749831
+'2023-05-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00012222653762246734
+      slope_sigma: 0.0015673887888596506
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.43067662171062e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.36700504601695e-05
+    sigma2: 1.4015625519063476e-05
+    n: 1.0
+  f_star: 1.6888329691724773
+  f_tilde: 0.675533187668991
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.6888329691724773
+    f_tilde: 0.675533187668991
+'2023-06-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00013962346703673406
+      slope_sigma: 0.001551812771135519
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.366758669478697e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.684678573067427e-05
+    sigma2: 1.4072056418813186e-05
+    n: 1.0
+  f_star: 1.1971800872082559
+  f_tilde: 0.4788720348833024
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.1971800872082559
+    f_tilde: 0.4788720348833024
+'2023-07-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001763299205452872
+      slope_sigma: 0.0015212637991833598
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.083015863493078e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.479426702931408e-05
+    sigma2: 1.38335196143809e-05
+    n: 1.0
+  f_star: 1.7923325169929087
+  f_tilde: 0.7169330067971635
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.7923325169929087
+    f_tilde: 0.7169330067971635
+'2023-08-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001608848547532868
+      slope_sigma: 0.0015104132851031214
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 9.001427426928927e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 9.106457502410953e-05
+    sigma2: 1.4016306760770334e-05
+    n: 1.0
+  f_star: 1.5028620151969212
+  f_tilde: 0.6011448060787685
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.5028620151969212
+    f_tilde: 0.6011448060787685
+'2023-09-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00012873136730943743
+      slope_sigma: 0.0015140865678461898
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.916611019831416e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.485277453663018e-05
+    sigma2: 1.4185209902844728e-05
+    n: 1.0
+  f_star: 1.0470606101959468
+  f_tilde: 0.4188242440783787
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 1.0470606101959468
+    f_tilde: 0.4188242440783787
+'2023-10-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0001482080698088696
+      slope_sigma: 0.0014979791711436034
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.677247720145625e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.239113908195536e-05
+    sigma2: 1.4227693414050181e-05
+    n: 1.0
+  f_star: 0.8709169309003263
+  f_tilde: 0.3483667723601305
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8709169309003263
+    f_tilde: 0.3483667723601305
+'2023-11-02':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00015408909253374504
+      slope_sigma: 0.0015018927525297346
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.622193149816087e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.367062721761569e-05
+    sigma2: 1.4194687789974276e-05
+    n: 1.0
+  f_star: 0.9630805143365867
+  f_tilde: 0.3852322057346347
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.9630805143365867
+    f_tilde: 0.3852322057346347
+'2023-12-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00019442652129407633
+      slope_sigma: 0.0014891474971849266
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.628316469413046e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.879476721755766e-05
+    sigma2: 1.4321092934448547e-05
+    n: 1.0
+  f_star: 0.6141128514292632
+  f_tilde: 0.24564514057170528
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.6141128514292632
+    f_tilde: 0.24564514057170528
+'2024-01-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00020154154842921696
+      slope_sigma: 0.0014886705288517878
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.537287661821028e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 6.980737615269935e-05
+    sigma2: 1.4045380109207148e-05
+    n: 1.0
+  f_star: 0.0
+  f_tilde: 0.0
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.0
+    f_tilde: 0.0
+'2024-02-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00019059079502118837
+      slope_sigma: 0.001484036978371287
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.51255495936968e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 7.296123940587827e-05
+    sigma2: 1.4106073572730018e-05
+    n: 1.0
+  f_star: 0.20992655331126073
+  f_tilde: 0.0839706213245043
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.20992655331126073
+    f_tilde: 0.0839706213245043
+'2024-03-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00017006975155816004
+      slope_sigma: 0.0014801146874517
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.501494473943715e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 8.28450584047604e-05
+    sigma2: 1.4334889729440033e-05
+    n: 1.0
+  f_star: 0.8960695650403284
+  f_tilde: 0.3584278260161314
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 0.8960695650403284
+    f_tilde: 0.3584278260161314
+'2024-04-07':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00020960061215400863
+      slope_sigma: 0.0014917160287756036
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.505786579030915e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011046112873224388
+    sigma2: 1.4520660440238212e-05
+    n: 1.0
+  f_star: 2.7864523723812202
+  f_tilde: 1.114580948952488
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 2.7864523723812202
+    f_tilde: 1.114580948952488
+'2024-05-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00022347363730596619
+      slope_sigma: 0.001514680729465343
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.523334135365337e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011607935315891292
+    sigma2: 1.465328895203449e-05
+    n: 1.0
+  f_star: 3.1446423604794327
+  f_tilde: 1.257856944191773
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.1446423604794327
+    f_tilde: 1.257856944191773
+'2024-06-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00025201092351183314
+      slope_sigma: 0.0015158399142931767
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.577733374686362e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011792804319851924
+    sigma2: 1.4714894539424986e-05
+    n: 1.0
+  f_star: 3.2571108865311733
+  f_tilde: 1.3028443546124695
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.2571108865311733
+    f_tilde: 1.3028443546124695
+'2024-07-08':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00022829483277619396
+      slope_sigma: 0.0015117071482879704
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.630726639952466e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012002383662464474
+    sigma2: 1.4951510387776311e-05
+    n: 1.0
+  f_star: 3.345738010893
+  f_tilde: 1.3382952043572
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.345738010893
+    f_tilde: 1.3382952043572
+'2024-08-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00024768002822565235
+      slope_sigma: 0.0015114901330501803
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.699451388718709e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00011541721369324501
+    sigma2: 1.5032597770915469e-05
+    n: 1.0
+  f_star: 3.021248515084772
+  f_tilde: 1.208499406033909
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.021248515084772
+    f_tilde: 1.208499406033909
+'2024-09-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0002677677443475118
+      slope_sigma: 0.001510791521563842
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.713705375446235e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00012199267033360885
+    sigma2: 1.5056600334861397e-05
+    n: 1.0
+  f_star: 3.4531480664481267
+  f_tilde: 1.3812592265792507
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.4531480664481267
+    f_tilde: 1.3812592265792507
+'2024-10-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0003021364527914572
+      slope_sigma: 0.001510212123029134
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.738170781415093e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013148671136867783
+    sigma2: 1.5008133347944517e-05
+    n: 1.0
+  f_star: 4.0968926610116325
+  f_tilde: 1.6387570644046532
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.0968926610116325
+    f_tilde: 1.6387570644046532
+'2024-11-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0003306407921690149
+      slope_sigma: 0.001506880372123991
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.699739503699202e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013327887479885694
+    sigma2: 1.5074373078768344e-05
+    n: 1.0
+  f_star: 4.197778207306196
+  f_tilde: 1.6791112829224784
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.197778207306196
+    f_tilde: 1.6791112829224784
+'2024-12-04':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00031661907406710263
+      slope_sigma: 0.0015091733606232961
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.72161505951914e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001233592371345968
+    sigma2: 1.5114300668946278e-05
+    n: 1.0
+  f_star: 3.530380816376658
+  f_tilde: 1.4121523265506633
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.530380816376658
+    f_tilde: 1.4121523265506633
+'2025-01-06':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00032010403795160034
+      slope_sigma: 0.0015107547730419722
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.694311281448944e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.0001183353757308533
+    sigma2: 1.5132357474107329e-05
+    n: 1.0
+  f_star: 3.194173532680482
+  f_tilde: 1.2776694130721928
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.194173532680482
+    f_tilde: 1.2776694130721928
+'2025-02-05':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00030949660591484367
+      slope_sigma: 0.0015092014797351142
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.656694340305831e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013024837401915394
+    sigma2: 1.5390889160393764e-05
+    n: 1.0
+  f_star: 3.914547976486924
+  f_tilde: 1.5658191905947696
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.914547976486924
+    f_tilde: 1.5658191905947696
+'2025-03-09':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.00034772041034233236
+      slope_sigma: 0.0015042499715863156
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.686578867084357e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013080959151882444
+    sigma2: 1.5490793113701026e-05
+    n: 1.0
+  f_star: 3.92553118955805
+  f_tilde: 1.57021247582322
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 3.92553118955805
+    f_tilde: 1.57021247582322
+'2025-04-07':
+  regime_state:
+    ema_state:
+      ema_lambda: 0.94
+      slope_mu: 0.0003577992087255355
+      slope_sigma: 0.0015137309746934596
+      z_clip:
+      - -3.0
+      - 3.0
+    mom_state:
+      k: 50
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+  vol_state:
+    theta: 0.94
+    sigma2_init: 8.703263171821476e-05
+    vol_target_annual: 0.15
+    w_max: 2.0
+  policy_state:
+    w_max: 2.0
+    baseline_floor: 0.25
+    baseline_floor_mode: FLOOR_ON_WVOL
+    baseline_floor_eps: 1.0e-06
+  exit_state:
+    atr:
+      window: 14
+      hard_stop_atr: 2.0
+      trailing_stop_atr: 1.5
+      timeout_days: 30
+    price_reference_for_peak: close
+    derisk_policy: DERISK_HALF
+    stop_fill_policy: STOP_FILL_T_PLUS_1
+  kelly_inputs:
+    mu: 0.00013573053969844027
+    sigma2: 1.5882929026807372e-05
+    n: 1.0
+  f_star: 4.138439426852541
+  f_tilde: 1.6553757707410164
+  chosen:
+    trainer_mode: FIXED
+    grid_overrides:
+      signal.ema_lambda: 0.94
+      risk.ewma_theta: 0.94
+      signal.blend_omega: 0.6
+      signal.pbull_threshold: 0.52
+    ema_lambda: 0.94
+    ewma_theta: 0.94
+    blend_omega: 0.6
+    pbull_threshold: 0.52
+    f_star: 4.138439426852541
+    f_tilde: 1.6553757707410164

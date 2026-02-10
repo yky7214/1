@@ -1,0 +1,105 @@
+{
+  "header": {
+    "run_name": "base_fast",
+    "time": {
+      "exec_lag": 1,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.0002593285676888652,
+      "slope_sigma": 0.002002991518595395,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 0.00014949133458588663,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 1.0772320454746393e-06
+    },
+    "costs": {
+      "k_linear": 7e-05,
+      "gamma_impact": 0.02
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2017-06-04",
+    "train_start": "2007-06-11",
+    "train_end": "2017-06-04",
+    "test_start": "2017-06-04",
+    "test_end": "2017-11-30",
+    "trainer_mode": "FIXED"
+  },
+  "events": [
+    {
+      "date": "2017-08-17",
+      "event": "ENTRY",
+      "price": 1291.6,
+      "info": {
+        "entry_price": 1291.6
+      }
+    },
+    {
+      "date": "2017-09-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1325.2,
+      "info": {
+        "age_days": 19
+      }
+    },
+    {
+      "date": "2017-09-17",
+      "event": "ENTRY",
+      "price": 1310.8,
+      "info": {
+        "entry_price": 1310.8
+      }
+    },
+    {
+      "date": "2017-09-26",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1287.8,
+      "info": {
+        "age_days": 7
+      }
+    },
+    {
+      "date": "2017-10-11",
+      "event": "ENTRY",
+      "price": 1296.5,
+      "info": {
+        "entry_price": 1296.5
+      }
+    },
+    {
+      "date": "2017-10-17",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1283.0,
+      "info": {
+        "age_days": 4
+      }
+    }
+  ]
+}

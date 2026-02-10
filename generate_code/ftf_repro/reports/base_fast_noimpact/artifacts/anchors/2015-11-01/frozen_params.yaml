@@ -1,0 +1,50 @@
+regime_state:
+  ema_state:
+    ema_lambda: 0.94
+    slope_mu: 0.00036418905680054865
+    slope_sigma: 0.002098146985355413
+    z_clip:
+    - -3.0
+    - 3.0
+  mom_state:
+    k: 50
+  blend_omega: 0.6
+  pbull_threshold: 0.52
+vol_state:
+  theta: 0.94
+  sigma2_init: 0.000165007365111227
+  vol_target_annual: 0.15
+  w_max: 2.0
+policy_state:
+  w_max: 2.0
+  baseline_floor: 0.25
+  baseline_floor_mode: FLOOR_ON_WVOL
+  baseline_floor_eps: 1.0e-06
+exit_state:
+  atr:
+    window: 14
+    hard_stop_atr: 2.0
+    trailing_stop_atr: 1.5
+    timeout_days: 30
+  price_reference_for_peak: close
+  derisk_policy: DERISK_HALF
+  stop_fill_policy: STOP_FILL_T_PLUS_1
+kelly_inputs:
+  mu: 0.00010806513844333448
+  sigma2: 1.5033908475252965e-05
+  n: 1.0
+f_star: 2.53195225353359
+f_tilde: 1.0127809014134361
+chosen:
+  trainer_mode: FIXED
+  grid_overrides:
+    signal.ema_lambda: 0.94
+    risk.ewma_theta: 0.94
+    signal.blend_omega: 0.6
+    signal.pbull_threshold: 0.52
+  ema_lambda: 0.94
+  ewma_theta: 0.94
+  blend_omega: 0.6
+  pbull_threshold: 0.52
+  f_star: 2.53195225353359
+  f_tilde: 1.0127809014134361

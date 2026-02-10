@@ -1,0 +1,267 @@
+{
+  "header": {
+    "run_name": "base_fast_2/3",
+    "time": {
+      "exec_lag": 1,
+      "delta_w_cap": 0.5,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.00028230782276414607,
+      "slope_sigma": 0.002019910092612314,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 0.00015930673417461296,
+      "vol_target_annual": 0.15,
+      "w_max": 3.0
+    },
+    "policy": {
+      "w_max": 3.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 0.0
+    },
+    "costs": {
+      "k_linear": 0.000345,
+      "gamma_impact": 0.0
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2016-06-02",
+    "train_start": "2006-06-11",
+    "train_end": "2016-06-02",
+    "test_start": "2016-06-02",
+    "test_end": "2016-11-30",
+    "trainer_mode": "FIXED",
+    "ctx_len": 167
+  },
+  "events": [
+    {
+      "date": "2016-01-19",
+      "event": "ENTRY",
+      "price": 1106.2,
+      "info": {
+        "entry_price": 1106.2
+      }
+    },
+    {
+      "date": "2016-02-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1208.2,
+      "info": {
+        "age_days": 18
+      }
+    },
+    {
+      "date": "2016-02-16",
+      "event": "ENTRY",
+      "price": 1211.4,
+      "info": {
+        "entry_price": 1211.4
+      }
+    },
+    {
+      "date": "2016-03-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1231.0,
+      "info": {
+        "age_days": 19
+      }
+    },
+    {
+      "date": "2016-03-15",
+      "event": "ENTRY",
+      "price": 1229.8,
+      "info": {
+        "entry_price": 1229.8
+      }
+    },
+    {
+      "date": "2016-03-22",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1224.0,
+      "info": {
+        "age_days": 5
+      }
+    },
+    {
+      "date": "2016-03-28",
+      "event": "ENTRY",
+      "price": 1235.8,
+      "info": {
+        "entry_price": 1235.8
+      }
+    },
+    {
+      "date": "2016-04-13",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1226.5,
+      "info": {
+        "age_days": 12
+      }
+    },
+    {
+      "date": "2016-04-14",
+      "event": "ENTRY",
+      "price": 1234.6,
+      "info": {
+        "entry_price": 1234.6
+      }
+    },
+    {
+      "date": "2016-04-24",
+      "event": "DERISK_HALF_ON",
+      "price": 1240.2,
+      "info": {
+        "p_bear": 0.7007180370205311
+      }
+    },
+    {
+      "date": "2016-04-25",
+      "event": "DERISK_HALF_OFF",
+      "price": 1243.4,
+      "info": {
+        "p_bear": 0.2938590135202712
+      }
+    },
+    {
+      "date": "2016-05-18",
+      "event": "DERISK_HALF_ON",
+      "price": 1254.8,
+      "info": {
+        "p_bear": 0.7273540343812508
+      }
+    },
+    {
+      "date": "2016-05-18",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1254.8,
+      "info": {
+        "age_days": 24
+      }
+    },
+    {
+      "date": "2016-06-05",
+      "event": "ENTRY",
+      "price": 1247.4,
+      "info": {
+        "entry_price": 1247.4
+      }
+    },
+    {
+      "date": "2016-06-22",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1263.1,
+      "info": {
+        "age_days": 13
+      }
+    },
+    {
+      "date": "2016-06-23",
+      "event": "ENTRY",
+      "price": 1322.4,
+      "info": {
+        "entry_price": 1322.4
+      }
+    },
+    {
+      "date": "2016-07-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1327.4,
+      "info": {
+        "age_days": 14
+      }
+    },
+    {
+      "date": "2016-07-17",
+      "event": "ENTRY",
+      "price": 1329.3,
+      "info": {
+        "entry_price": 1329.3
+      }
+    },
+    {
+      "date": "2016-08-07",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1341.3,
+      "info": {
+        "age_days": 15
+      }
+    },
+    {
+      "date": "2016-08-08",
+      "event": "ENTRY",
+      "price": 1346.7,
+      "info": {
+        "entry_price": 1346.7
+      }
+    },
+    {
+      "date": "2016-08-23",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1329.7,
+      "info": {
+        "age_days": 11
+      }
+    },
+    {
+      "date": "2016-09-04",
+      "event": "ENTRY",
+      "price": 1354.0,
+      "info": {
+        "entry_price": 1354.0
+      }
+    },
+    {
+      "date": "2016-09-11",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1325.6,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2016-09-21",
+      "event": "ENTRY",
+      "price": 1344.7,
+      "info": {
+        "entry_price": 1344.7
+      }
+    },
+    {
+      "date": "2016-09-27",
+      "event": "DERISK_HALF_ON",
+      "price": 1323.7,
+      "info": {
+        "p_bear": 0.7326120403864969
+      }
+    },
+    {
+      "date": "2016-09-27",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1323.7,
+      "info": {
+        "age_days": 4
+      }
+    }
+  ]
+}

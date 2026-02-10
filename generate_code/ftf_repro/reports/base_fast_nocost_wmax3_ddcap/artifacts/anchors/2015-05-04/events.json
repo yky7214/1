@@ -1,0 +1,270 @@
+{
+  "header": {
+    "run_name": "base_fast_2/3",
+    "time": {
+      "exec_lag": 1,
+      "delta_w_cap": 0.5,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC",
+      "delta_w_cap_dd": 0.2,
+      "dd_on": 0.1,
+      "dd_off": 0.06
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.00040759096037984904,
+      "slope_sigma": 0.0020863789724110847,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 0.00016422715977134443,
+      "vol_target_annual": 0.15,
+      "w_max": 3.0
+    },
+    "policy": {
+      "w_max": 3.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 5.702880085419989
+    },
+    "costs": {
+      "k_linear": 0,
+      "gamma_impact": 0
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2015-05-04",
+    "train_start": "2005-05-09",
+    "train_end": "2015-05-04",
+    "test_start": "2015-05-04",
+    "test_end": "2015-11-01",
+    "trainer_mode": "FIXED",
+    "ctx_len": 167
+  },
+  "events": [
+    {
+      "date": "2014-11-30",
+      "event": "ENTRY",
+      "price": 1218.1,
+      "info": {
+        "entry_price": 1218.1
+      }
+    },
+    {
+      "date": "2014-12-01",
+      "event": "DERISK_HALF_ON",
+      "price": 1199.4,
+      "info": {
+        "p_bear": 0.7120343529951205
+      }
+    },
+    {
+      "date": "2014-12-08",
+      "event": "DERISK_HALF_OFF",
+      "price": 1232.0,
+      "info": {
+        "p_bear": 0.2371971359013456
+      }
+    },
+    {
+      "date": "2014-12-15",
+      "event": "DERISK_HALF_ON",
+      "price": 1194.3,
+      "info": {
+        "p_bear": 0.742693169126441
+      }
+    },
+    {
+      "date": "2014-12-18",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1196.0,
+      "info": {
+        "age_days": 14
+      }
+    },
+    {
+      "date": "2015-01-11",
+      "event": "ENTRY",
+      "price": 1232.8,
+      "info": {
+        "entry_price": 1232.8
+      }
+    },
+    {
+      "date": "2015-01-28",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1255.9,
+      "info": {
+        "age_days": 12
+      }
+    },
+    {
+      "date": "2015-01-29",
+      "event": "ENTRY",
+      "price": 1279.2,
+      "info": {
+        "entry_price": 1279.2
+      }
+    },
+    {
+      "date": "2015-02-05",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1234.6,
+      "info": {
+        "age_days": 5
+      }
+    },
+    {
+      "date": "2015-04-28",
+      "event": "ENTRY",
+      "price": 1210.0,
+      "info": {
+        "entry_price": 1210.0
+      }
+    },
+    {
+      "date": "2015-04-29",
+      "event": "DERISK_HALF_ON",
+      "price": 1182.4,
+      "info": {
+        "p_bear": 0.7557666860225823
+      }
+    },
+    {
+      "date": "2015-04-29",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1182.4,
+      "info": {
+        "age_days": 1
+      }
+    },
+    {
+      "date": "2015-05-12",
+      "event": "ENTRY",
+      "price": 1218.2,
+      "info": {
+        "entry_price": 1218.2
+      }
+    },
+    {
+      "date": "2015-05-20",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1204.1,
+      "info": {
+        "age_days": 6
+      }
+    },
+    {
+      "date": "2015-05-21",
+      "event": "ENTRY",
+      "price": 1204.0,
+      "info": {
+        "entry_price": 1204.0
+      }
+    },
+    {
+      "date": "2015-06-02",
+      "event": "DERISK_HALF_ON",
+      "price": 1184.9,
+      "info": {
+        "p_bear": 0.7494224698259454
+      }
+    },
+    {
+      "date": "2015-06-03",
+      "event": "EXIT_HARD_STOP",
+      "price": 1175.2,
+      "info": {
+        "age_days": 8
+      }
+    },
+    {
+      "date": "2015-06-18",
+      "event": "ENTRY",
+      "price": 1201.9,
+      "info": {
+        "entry_price": 1201.9
+      }
+    },
+    {
+      "date": "2015-06-21",
+      "event": "DERISK_HALF_ON",
+      "price": 1184.1,
+      "info": {
+        "p_bear": 0.7336563738371722
+      }
+    },
+    {
+      "date": "2015-06-22",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1176.6,
+      "info": {
+        "age_days": 2
+      }
+    },
+    {
+      "date": "2015-09-23",
+      "event": "ENTRY",
+      "price": 1153.8,
+      "info": {
+        "entry_price": 1153.8
+      }
+    },
+    {
+      "date": "2015-09-27",
+      "event": "DERISK_HALF_ON",
+      "price": 1131.7,
+      "info": {
+        "p_bear": 0.7055092884359211
+      }
+    },
+    {
+      "date": "2015-09-28",
+      "event": "DERISK_HALF_OFF",
+      "price": 1126.8,
+      "info": {
+        "p_bear": 0.31882944653522916
+      }
+    },
+    {
+      "date": "2015-09-28",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1126.8,
+      "info": {
+        "age_days": 3
+      }
+    },
+    {
+      "date": "2015-10-01",
+      "event": "ENTRY",
+      "price": 1136.6,
+      "info": {
+        "entry_price": 1136.6
+      }
+    },
+    {
+      "date": "2015-10-28",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1147.3,
+      "info": {
+        "age_days": 19
+      }
+    }
+  ]
+}

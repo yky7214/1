@@ -1,0 +1,14 @@
+# python
+__pycache__/
+*.pyc
+
+# venv
+.venv/
+generate_code/.venv/
+
+# outputs
+generate_code/ftf_repro/reports/
+*.parquet
+
+# misc
+.DS_Store

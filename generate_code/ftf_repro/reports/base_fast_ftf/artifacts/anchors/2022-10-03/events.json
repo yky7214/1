@@ -1,0 +1,170 @@
+{
+  "header": {
+    "run_name": "base_fast",
+    "time": {
+      "exec_lag": 1,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": -1.6318293142463715e-05,
+      "slope_sigma": 0.0015870708359395141,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 9.6532915424176e-05,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 0.2676874553160845
+    },
+    "costs": {
+      "k_linear": 7e-05,
+      "gamma_impact": 0.0
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2022-10-03",
+    "train_start": "2012-10-01",
+    "train_end": "2022-10-03",
+    "test_start": "2022-10-03",
+    "test_end": "2023-04-04",
+    "trainer_mode": "FIXED",
+    "ctx_len": 167
+  },
+  "events": [
+    {
+      "date": "2022-04-17",
+      "event": "ENTRY",
+      "price": 1986.4,
+      "info": {
+        "entry_price": 1986.4
+      }
+    },
+    {
+      "date": "2022-04-21",
+      "event": "EXIT_HARD_STOP",
+      "price": 1934.3,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2022-10-03",
+      "event": "ENTRY",
+      "price": 1730.5,
+      "info": {
+        "entry_price": 1730.5
+      }
+    },
+    {
+      "date": "2022-10-06",
+      "event": "DERISK_HALF_ON",
+      "price": 1709.3,
+      "info": {
+        "p_bear": 0.6948113698187984
+      }
+    },
+    {
+      "date": "2022-10-09",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1675.2,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2022-11-09",
+      "event": "ENTRY",
+      "price": 1753.7,
+      "info": {
+        "entry_price": 1753.7
+      }
+    },
+    {
+      "date": "2022-11-20",
+      "event": "DERISK_HALF_ON",
+      "price": 1739.6,
+      "info": {
+        "p_bear": 0.6283743558179973
+      }
+    },
+    {
+      "date": "2022-11-21",
+      "event": "DERISK_HALF_OFF",
+      "price": 1739.9,
+      "info": {
+        "p_bear": 0.23195828979021704
+      }
+    },
+    {
+      "date": "2022-12-22",
+      "event": "EXIT_TIMEOUT",
+      "price": 1804.2,
+      "info": {
+        "age_days": 30
+      }
+    },
+    {
+      "date": "2022-12-26",
+      "event": "ENTRY",
+      "price": 1823.1,
+      "info": {
+        "entry_price": 1823.1
+      }
+    },
+    {
+      "date": "2023-02-02",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1876.6,
+      "info": {
+        "age_days": 26
+      }
+    },
+    {
+      "date": "2023-02-06",
+      "event": "ENTRY",
+      "price": 1884.8,
+      "info": {
+        "entry_price": 1884.8
+      }
+    },
+    {
+      "date": "2023-02-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1845.3,
+      "info": {
+        "age_days": 6
+      }
+    },
+    {
+      "date": "2023-03-09",
+      "event": "ENTRY",
+      "price": 1867.2,
+      "info": {
+        "entry_price": 1867.2
+      }
+    }
+  ]
+}

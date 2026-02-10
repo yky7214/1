@@ -1,0 +1,235 @@
+{
+  "header": {
+    "run_name": "base_fast_2/3",
+    "time": {
+      "exec_lag": 1,
+      "delta_w_cap": 0.5,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.00012246544225571446,
+      "slope_sigma": 0.0019343198648187358,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 0.00014363367820882729,
+      "vol_target_annual": 0.15,
+      "w_max": 5.0
+    },
+    "policy": {
+      "w_max": 5.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 0.0
+    },
+    "costs": {
+      "k_linear": 0.000345,
+      "gamma_impact": 0.0
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2018-03-05",
+    "train_start": "2008-03-06",
+    "train_end": "2018-03-05",
+    "test_start": "2018-03-05",
+    "test_end": "2018-09-02",
+    "trainer_mode": "FIXED",
+    "ctx_len": 167
+  },
+  "events": [
+    {
+      "date": "2017-09-14",
+      "event": "ENTRY",
+      "price": 1325.2,
+      "info": {
+        "entry_price": 1325.2
+      }
+    },
+    {
+      "date": "2017-09-20",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1294.8,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2017-09-24",
+      "event": "ENTRY",
+      "price": 1311.5,
+      "info": {
+        "entry_price": 1311.5
+      }
+    },
+    {
+      "date": "2017-09-28",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1284.8,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2017-10-11",
+      "event": "ENTRY",
+      "price": 1296.5,
+      "info": {
+        "entry_price": 1296.5
+      }
+    },
+    {
+      "date": "2017-10-17",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1283.0,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2017-12-27",
+      "event": "ENTRY",
+      "price": 1297.2,
+      "info": {
+        "entry_price": 1297.2
+      }
+    },
+    {
+      "date": "2018-02-01",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1337.3,
+      "info": {
+        "age_days": 24
+      }
+    },
+    {
+      "date": "2018-02-04",
+      "event": "ENTRY",
+      "price": 1336.5,
+      "info": {
+        "entry_price": 1336.5
+      }
+    },
+    {
+      "date": "2018-02-22",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1330.3,
+      "info": {
+        "age_days": 13
+      }
+    },
+    {
+      "date": "2018-02-25",
+      "event": "ENTRY",
+      "price": 1332.8,
+      "info": {
+        "entry_price": 1332.8
+      }
+    },
+    {
+      "date": "2018-02-28",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1305.2,
+      "info": {
+        "age_days": 3
+      }
+    },
+    {
+      "date": "2018-03-05",
+      "event": "ENTRY",
+      "price": 1335.2,
+      "info": {
+        "entry_price": 1335.2
+      }
+    },
+    {
+      "date": "2018-03-15",
+      "event": "DERISK_HALF_ON",
+      "price": 1312.3,
+      "info": {
+        "p_bear": 0.7375420404486697
+      }
+    },
+    {
+      "date": "2018-03-15",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1312.3,
+      "info": {
+        "age_days": 8
+      }
+    },
+    {
+      "date": "2018-03-21",
+      "event": "ENTRY",
+      "price": 1327.4,
+      "info": {
+        "entry_price": 1327.4
+      }
+    },
+    {
+      "date": "2018-03-27",
+      "event": "DERISK_HALF_ON",
+      "price": 1330.0,
+      "info": {
+        "p_bear": 0.7014901972610402
+      }
+    },
+    {
+      "date": "2018-03-27",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1330.0,
+      "info": {
+        "age_days": 4
+      }
+    },
+    {
+      "date": "2018-04-01",
+      "event": "ENTRY",
+      "price": 1346.9,
+      "info": {
+        "entry_price": 1346.9
+      }
+    },
+    {
+      "date": "2018-04-04",
+      "event": "DERISK_HALF_ON",
+      "price": 1328.5,
+      "info": {
+        "p_bear": 0.7104204764331632
+      }
+    },
+    {
+      "date": "2018-04-10",
+      "event": "DERISK_HALF_OFF",
+      "price": 1360.0,
+      "info": {
+        "p_bear": 0.24171490612131352
+      }
+    },
+    {
+      "date": "2018-04-22",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1324.0,
+      "info": {
+        "age_days": 15
+      }
+    }
+  ]
+}

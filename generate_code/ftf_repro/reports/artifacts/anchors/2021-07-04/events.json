@@ -1,0 +1,235 @@
+{
+  "header": {
+    "run_name": "base_fast_2/3",
+    "time": {
+      "exec_lag": 1,
+      "delta_w_cap": 0.5,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 7.238374291855948e-05,
+      "slope_sigma": 0.0017026857358986365,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 0.000108722689945747,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 4.395766209387041
+    },
+    "costs": {
+      "k_linear": 0,
+      "gamma_impact": 0
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2021-07-04",
+    "train_start": "2011-07-03",
+    "train_end": "2021-07-04",
+    "test_start": "2021-07-04",
+    "test_end": "2022-01-02",
+    "trainer_mode": "FIXED",
+    "ctx_len": 167
+  },
+  "events": [
+    {
+      "date": "2021-05-02",
+      "event": "ENTRY",
+      "price": 1791.8,
+      "info": {
+        "entry_price": 1791.8
+      }
+    },
+    {
+      "date": "2021-05-03",
+      "event": "DERISK_HALF_ON",
+      "price": 1776.0,
+      "info": {
+        "p_bear": 0.6759574000004342
+      }
+    },
+    {
+      "date": "2021-05-05",
+      "event": "DERISK_HALF_OFF",
+      "price": 1815.7,
+      "info": {
+        "p_bear": 0.20233346941803143
+      }
+    },
+    {
+      "date": "2021-06-02",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1873.3,
+      "info": {
+        "age_days": 22
+      }
+    },
+    {
+      "date": "2021-06-03",
+      "event": "ENTRY",
+      "price": 1892.0,
+      "info": {
+        "entry_price": 1892.0
+      }
+    },
+    {
+      "date": "2021-06-14",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1856.4,
+      "info": {
+        "age_days": 7
+      }
+    },
+    {
+      "date": "2021-06-15",
+      "event": "ENTRY",
+      "price": 1861.4,
+      "info": {
+        "entry_price": 1861.4
+      }
+    },
+    {
+      "date": "2021-06-16",
+      "event": "EXIT_HARD_STOP",
+      "price": 1774.8,
+      "info": {
+        "age_days": 1
+      }
+    },
+    {
+      "date": "2021-07-13",
+      "event": "ENTRY",
+      "price": 1825.0,
+      "info": {
+        "entry_price": 1825.0
+      }
+    },
+    {
+      "date": "2021-07-18",
+      "event": "DERISK_HALF_ON",
+      "price": 1809.2,
+      "info": {
+        "p_bear": 0.7130188686016881
+      }
+    },
+    {
+      "date": "2021-07-27",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1799.7,
+      "info": {
+        "age_days": 10
+      }
+    },
+    {
+      "date": "2021-08-26",
+      "event": "ENTRY",
+      "price": 1819.5,
+      "info": {
+        "entry_price": 1819.5
+      }
+    },
+    {
+      "date": "2021-09-05",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1798.5,
+      "info": {
+        "age_days": 6
+      }
+    },
+    {
+      "date": "2021-09-13",
+      "event": "ENTRY",
+      "price": 1807.1,
+      "info": {
+        "entry_price": 1807.1
+      }
+    },
+    {
+      "date": "2021-09-15",
+      "event": "DERISK_HALF_ON",
+      "price": 1756.7,
+      "info": {
+        "p_bear": 0.7894918720870742
+      }
+    },
+    {
+      "date": "2021-09-15",
+      "event": "EXIT_HARD_STOP",
+      "price": 1756.7,
+      "info": {
+        "age_days": 2
+      }
+    },
+    {
+      "date": "2021-10-19",
+      "event": "ENTRY",
+      "price": 1784.9,
+      "info": {
+        "entry_price": 1784.9
+      }
+    },
+    {
+      "date": "2021-11-01",
+      "event": "DERISK_HALF_ON",
+      "price": 1789.4,
+      "info": {
+        "p_bear": 0.6886752850970426
+      }
+    },
+    {
+      "date": "2021-11-02",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1763.9,
+      "info": {
+        "age_days": 10
+      }
+    },
+    {
+      "date": "2021-11-03",
+      "event": "ENTRY",
+      "price": 1793.5,
+      "info": {
+        "entry_price": 1793.5
+      }
+    },
+    {
+      "date": "2021-11-21",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 1806.3,
+      "info": {
+        "age_days": 12
+      }
+    },
+    {
+      "date": "2021-12-15",
+      "event": "ENTRY",
+      "price": 1798.2,
+      "info": {
+        "entry_price": 1798.2
+      }
+    }
+  ]
+}

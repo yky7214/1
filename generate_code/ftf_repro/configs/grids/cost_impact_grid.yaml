@@ -1,0 +1,32 @@
+# Cost/impact stress-test grid
+# Multiplies baseline k_linear and gamma_impact by common stress factors.
+# Intended for scripts/04_cost_impact.py.
+
+run_name: cost_impact_grid
+baseline_name: x1.0
+
+# Each entry deep-merges onto a base config (e.g., configs/base_fast.yaml)
+configs:
+  - name: x0.5
+    overrides:
+      costs:
+        k_linear: 0.000035
+        gamma_impact: 0.01
+
+  - name: x1.0
+    overrides:
+      costs:
+        k_linear: 0.00007
+        gamma_impact: 0.02
+
+  - name: x1.5
+    overrides:
+      costs:
+        k_linear: 0.000105
+        gamma_impact: 0.03
+
+  - name: x2.0
+    overrides:
+      costs:
+        k_linear: 0.00014
+        gamma_impact: 0.04

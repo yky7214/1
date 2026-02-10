@@ -1,0 +1,166 @@
+# 64-config SPA/Reality Check grid.
+# The runner (scripts/05_spa.py) merges each override into base_fast.yaml via deep_update.
+# We keep this file intentionally explicit and human-auditable.
+
+baseline_name: baseline
+
+# Each entry is a deep-merge override dict.
+# Grid axes (4 x 4 x 2 x 2 = 64):
+#   signal.ema_lambda ∈ {0.90, 0.92, 0.94, 0.96}
+#   signal.blend_omega ∈ {0.50, 0.60, 0.70, 0.80}
+#   signal.pbull_threshold ∈ {0.50, 0.55}
+#   risk.ewma_theta ∈ {0.94, 0.96}
+
+configs:
+  # --- lambda=0.90 ---
+  - name: baseline
+    overrides:
+      signal: {ema_lambda: 0.94, blend_omega: 0.60, pbull_threshold: 0.52}
+      risk: {ewma_theta: 0.94}
+
+  - name: l090_o050_th050_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l090_o050_th050_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l090_o050_th055_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l090_o050_th055_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l090_o060_th050_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l090_o060_th050_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l090_o060_th055_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l090_o060_th055_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l090_o070_th050_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l090_o070_th050_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l090_o070_th055_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l090_o070_th055_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l090_o080_th050_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l090_o080_th050_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l090_o080_th055_t094
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l090_o080_th055_t096
+    overrides: {signal: {ema_lambda: 0.90, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  # --- lambda=0.92 ---
+  - name: l092_o050_th050_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l092_o050_th050_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l092_o050_th055_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l092_o050_th055_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l092_o060_th050_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l092_o060_th050_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l092_o060_th055_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l092_o060_th055_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l092_o070_th050_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l092_o070_th050_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l092_o070_th055_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l092_o070_th055_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l092_o080_th050_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l092_o080_th050_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l092_o080_th055_t094
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l092_o080_th055_t096
+    overrides: {signal: {ema_lambda: 0.92, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  # --- lambda=0.94 ---
+  - name: l094_o050_th050_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l094_o050_th050_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l094_o050_th055_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l094_o050_th055_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l094_o060_th050_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l094_o060_th050_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l094_o060_th055_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l094_o060_th055_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l094_o070_th050_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l094_o070_th050_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l094_o070_th055_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l094_o070_th055_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l094_o080_th050_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l094_o080_th050_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l094_o080_th055_t094
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l094_o080_th055_t096
+    overrides: {signal: {ema_lambda: 0.94, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  # --- lambda=0.96 ---
+  - name: l096_o050_th050_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l096_o050_th050_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.50, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l096_o050_th055_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l096_o050_th055_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.50, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l096_o060_th050_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l096_o060_th050_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.60, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l096_o060_th055_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l096_o060_th055_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.60, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l096_o070_th050_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l096_o070_th050_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.70, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l096_o070_th055_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l096_o070_th055_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.70, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}
+
+  - name: l096_o080_th050_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.94}}
+  - name: l096_o080_th050_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.80, pbull_threshold: 0.50}, risk: {ewma_theta: 0.96}}
+  - name: l096_o080_th055_t094
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.94}}
+  - name: l096_o080_th055_t096
+    overrides: {signal: {ema_lambda: 0.96, blend_omega: 0.80, pbull_threshold: 0.55}, risk: {ewma_theta: 0.96}}

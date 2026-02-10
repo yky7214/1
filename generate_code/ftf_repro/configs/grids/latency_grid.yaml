@@ -1,0 +1,28 @@
+# Latency robustness grid
+#
+# Used by scripts/03_latency.py to re-run the baseline walk-forward pipeline
+# under different forecast-to-fill execution delays.
+#
+# NOTE: Delay is applied as: w_exec[t] = w_target[t - exec_lag]
+# and P&L attribution uses w_exec[t-1] * r[t].
+
+run_name: latency_grid
+
+# Baseline for comparison in tables/plots
+baseline_name: lag1
+
+configs:
+  - name: lag0
+    overrides:
+      time:
+        exec_lag: 0
+
+  - name: lag1
+    overrides:
+      time:
+        exec_lag: 1
+
+  - name: lag2
+    overrides:
+      time:
+        exec_lag: 2

@@ -1,0 +1,225 @@
+{
+  "header": {
+    "run_name": "base_fast",
+    "time": {
+      "exec_lag": 1,
+      "stop_fill_policy": "STOP_FILL_T_PLUS_1",
+      "stitch_rule": "FULL_TEST_DIAGNOSTIC"
+    },
+    "signal": {
+      "ema_lambda": 0.94,
+      "slope_mu": 0.00034772041034233236,
+      "slope_sigma": 0.0015042499715863156,
+      "z_clip": [
+        -3.0,
+        3.0
+      ],
+      "momentum_k": 50,
+      "blend_omega": 0.6,
+      "pbull_threshold": 0.52
+    },
+    "risk": {
+      "theta": 0.94,
+      "sigma2_init": 8.686578867084357e-05,
+      "vol_target_annual": 0.15,
+      "w_max": 2.0
+    },
+    "policy": {
+      "w_max": 2.0,
+      "baseline_floor": 0.25,
+      "baseline_floor_mode": "FLOOR_ON_WVOL",
+      "baseline_floor_eps": 1e-06
+    },
+    "kelly": {
+      "f_tilde": 1.6434660800343718e-06
+    },
+    "costs": {
+      "k_linear": 7e-05,
+      "gamma_impact": 0.02
+    },
+    "atr_exit": {
+      "atr_window": 14,
+      "hard_stop_atr": 2.0,
+      "trailing_stop_atr": 1.5,
+      "timeout_days": 30,
+      "price_reference_for_peak": "close",
+      "derisk_policy": "DERISK_HALF"
+    },
+    "anchor": "2025-03-09",
+    "train_start": "2015-03-04",
+    "train_end": "2025-03-09",
+    "test_start": "2025-03-09",
+    "test_end": "2025-09-08",
+    "trainer_mode": "FIXED"
+  },
+  "events": [
+    {
+      "date": "2025-05-19",
+      "event": "ENTRY",
+      "price": 3284.6,
+      "info": {
+        "entry_price": 3284.6
+      }
+    },
+    {
+      "date": "2025-06-23",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3333.9,
+      "info": {
+        "age_days": 23
+      }
+    },
+    {
+      "date": "2025-06-24",
+      "event": "ENTRY",
+      "price": 3343.1,
+      "info": {
+        "entry_price": 3343.1
+      }
+    },
+    {
+      "date": "2025-06-29",
+      "event": "DERISK_HALF_ON",
+      "price": 3307.7,
+      "info": {
+        "p_bear": 0.7574440347992957
+      }
+    },
+    {
+      "date": "2025-06-30",
+      "event": "DERISK_HALF_OFF",
+      "price": 3349.8,
+      "info": {
+        "p_bear": 0.30493704274219136
+      }
+    },
+    {
+      "date": "2025-07-01",
+      "event": "DERISK_HALF_ON",
+      "price": 3359.7,
+      "info": {
+        "p_bear": 0.6942569557220946
+      }
+    },
+    {
+      "date": "2025-07-03",
+      "event": "DERISK_HALF_OFF",
+      "price": 3342.8,
+      "info": {
+        "p_bear": 0.31653104379864305
+      }
+    },
+    {
+      "date": "2025-07-07",
+      "event": "DERISK_HALF_ON",
+      "price": 3316.9,
+      "info": {
+        "p_bear": 0.7479508996578978
+      }
+    },
+    {
+      "date": "2025-07-08",
+      "event": "DERISK_HALF_OFF",
+      "price": 3321.0,
+      "info": {
+        "p_bear": 0.34153343598155494
+      }
+    },
+    {
+      "date": "2025-07-09",
+      "event": "DERISK_HALF_ON",
+      "price": 3325.7,
+      "info": {
+        "p_bear": 0.7347874209228246
+      }
+    },
+    {
+      "date": "2025-07-10",
+      "event": "DERISK_HALF_OFF",
+      "price": 3364.0,
+      "info": {
+        "p_bear": 0.2884142778019654
+      }
+    },
+    {
+      "date": "2025-07-17",
+      "event": "DERISK_HALF_ON",
+      "price": 3358.3,
+      "info": {
+        "p_bear": 0.7007376128244931
+      }
+    },
+    {
+      "date": "2025-07-20",
+      "event": "DERISK_HALF_OFF",
+      "price": 3406.4,
+      "info": {
+        "p_bear": 0.2453565378996283
+      }
+    },
+    {
+      "date": "2025-07-24",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3335.6,
+      "info": {
+        "age_days": 21
+      }
+    },
+    {
+      "date": "2025-07-29",
+      "event": "ENTRY",
+      "price": 3352.8,
+      "info": {
+        "entry_price": 3352.8
+      }
+    },
+    {
+      "date": "2025-08-10",
+      "event": "EXIT_TRAILING_STOP",
+      "price": 3404.7,
+      "info": {
+        "age_days": 8
+      }
+    },
+    {
+      "date": "2025-08-11",
+      "event": "ENTRY",
+      "price": 3399.0,
+      "info": {
+        "entry_price": 3399.0
+      }
+    },
+    {
+      "date": "2025-08-14",
+      "event": "DERISK_HALF_ON",
+      "price": 3382.6,
+      "info": {
+        "p_bear": 0.7228701139512257
+      }
+    },
+    {
+      "date": "2025-08-17",
+      "event": "DERISK_HALF_OFF",
+      "price": 3378.0,
+      "info": {
+        "p_bear": 0.328312784753499
+      }
+    },
+    {
+      "date": "2025-08-25",
+      "event": "DERISK_HALF_ON",
+      "price": 3433.0,
+      "info": {
+        "p_bear": 0.6675156775988911
+      }
+    },
+    {
+      "date": "2025-08-26",
+      "event": "DERISK_HALF_OFF",
+      "price": 3448.6,
+      "info": {
+        "p_bear": 0.2527675784503858
+      }
+    }
+  ]
+}
