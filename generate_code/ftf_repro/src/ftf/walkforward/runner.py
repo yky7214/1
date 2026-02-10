@@ -271,28 +271,37 @@ def run_walkforward(
     oos_net_ret = stitched["net_ret"].copy()
     oos_gross_ret = stitched["gross_ret"].copy()
 
-    if out_path is not None and persist_daily:
-        ensure_dir(out_path / "reports")
-        save_parquet(stitched, out_path / "reports" / "oos_daily.parquet")
-        # Also save net returns only for convenience
-        save_parquet(oos_net_ret.to_frame("net_ret"), out_path / "reports" / "oos_net_ret.parquet")
-        save_parquet(oos_gross_ret.to_frame("gross_ret"), out_path / "reports" / "oos_gross_ret.parquet")
-        save_yaml({"cfg": cfg.to_dict()}, out_path / "reports" / "config_snapshot.yaml")
-        save_json(
-            {"n_anchors": len(anchors), "stitch_rule": cfg.time.stitch_rule},
-            out_path / "reports" / "walkforward_meta.json",
-        )
-
     # ===== after finishing all anchors: stitch OOS =====
     stitched = _stitch_first_step_only(engines, anchors, cfg=cfg)
 
+    # ------------------------------------------------------------------
+    # NEW: unit-notional sleeve return (paper capacity input)
+    #
+    # Definition: same entry/exit decisions as the executed strategy,
+    # but fixed notional = 1 when active. Use t-1 exposure convention.
+    #
+    # unit_active[t-1] = 1{ w_exec[t-1] != 0 }
+    # unit_sleeve_ret[t] = unit_active[t-1] * r[t]
+    # ------------------------------------------------------------------
+    if "w_exec" not in stitched.columns:
+        raise ValueError("stitched OOS daily missing required column 'w_exec' for unit sleeve")
+    if "r" not in stitched.columns:
+        raise ValueError("stitched OOS daily missing required column 'r' for unit sleeve")
+
+    w_exec = stitched["w_exec"].astype(float)
+    r = stitched["r"].astype(float)
+
+    unit_active_prev = (w_exec.shift(1).fillna(0.0).abs() > 1e-12)
+    stitched["unit_sleeve_active"] = unit_active_prev.astype(int)
+    stitched["unit_sleeve_ret"] = unit_active_prev.astype(float) * r
+
+    # Primary series
     oos_net_ret = stitched["net_ret"].copy()
     oos_gross_ret = stitched["gross_ret"].copy()
 
     if out_path is not None and persist_daily:
         ensure_dir(out_path / "reports")
         save_parquet(stitched, out_path / "reports" / "oos_daily.parquet")
-        # Also save net returns only for convenience
         save_parquet(oos_net_ret.to_frame("net_ret"), out_path / "reports" / "oos_net_ret.parquet")
         save_parquet(oos_gross_ret.to_frame("gross_ret"), out_path / "reports" / "oos_gross_ret.parquet")
         save_yaml({"cfg": cfg.to_dict()}, out_path / "reports" / "config_snapshot.yaml")
@@ -307,5 +316,6 @@ def run_walkforward(
         oos_gross_ret=oos_gross_ret,
         anchors=anchors,
         per_anchor=engines,
-        frozen_params=frozen_params,        
+        frozen_params=frozen_params,
     )
+
