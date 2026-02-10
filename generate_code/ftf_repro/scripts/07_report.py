@@ -1,35 +1,15 @@
-"""Generate a lightweight reproduction report.
+"""
+Capacity analysis runner.
 
-This script is intentionally pragmatic (not a full paper-quality reporting suite).
-It loads a stitched walk-forward output (or re-runs the walk-forward pipeline),
-computes headline performance statistics, regression vs LBMA spot (if provided),
-bootstrap Sharpe confidence intervals, and writes small tables/figures to a
-reports/ directory.
+This script estimates strategy capacity following the reproduction plan:
+- Load an existing walk-forward OOS run (preferred), or run it from config.
+- Use a fixed 1-notional sleeve return series (paper-consistent) if available.
+- Estimate (mu_u, sigma_u) and compute the growth curve g(L).
+- Solve for L_max where g(L)=0.
+- Map executed-weight turnover and market ADV to AUM capacity.
 
-Usage
------
-Baseline (after running scripts/02_run_fast_oos.py):
-
-    python ftf_repro/scripts/07_report.py \
-        --run_dir reports/base_fast \
-        --lbma_path data/raw/lbma_pm_fix.parquet
-
-Or run end-to-end from processed continuous futures:
-
-    python ftf_repro/scripts/07_report.py \
-        --config ftf_repro/configs/base_fast.yaml \
-        --processed_path data/processed/gc_continuous.parquet \
-        --out_dir reports/base_fast \
-        --lbma_path data/raw/lbma_pm_fix.parquet
-
-Outputs
--------
-- reports/report_summary.json
-- reports/perf_table.csv
-- reports/regression_table.csv (if lbma supplied)
-- reports/sharpe_ci.json
-- reports/equity_curve.png
-
+Usage:
+  python scripts/06_capacity.py --run_dir reports/base_fast_king
 """
 
 from __future__ import annotations
@@ -37,17 +17,22 @@ from __future__ import annotations
 import argparse
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 import pandas as pd
 
-from ftf.stats.bootstrap import bootstrap_sharpe_ci
-from ftf.stats.metrics import summarize
-from ftf.stats.regression import hac_regression_sensitivity, result_to_dict
+from ftf.capacity import (
+    estimate_aum_capacity,
+    estimate_unit_notional_stats,
+    growth_curve,
+    solve_L_max,
+)
+from ftf.capacity.aum_mapping import aum_participation_summary, capacity_dict
+from ftf.reporting import plot_growth_curve
+from ftf.sizing.kelly import estimate_kelly_inputs
 from ftf.utils import (
     FTFConfig,
-    deep_update,
     ensure_dir,
     load_parquet,
     load_yaml,
@@ -59,55 +44,25 @@ from ftf.utils import (
 from ftf.walkforward.runner import run_walkforward
 
 
+# ---------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------
 def _parse_args() -> argparse.Namespace:
-    p = argparse.ArgumentParser(description=__doc__)
-
-    p.add_argument(
-        "--run_dir",
-        type=str,
-        default=None,
-        help=(
-            "Existing run directory created by scripts/02_run_fast_oos.py. "
-            "If provided, loads reports/oos_daily.parquet and config_snapshot.yaml from it."
-        ),
-    )
-
-    p.add_argument(
-        "--config",
-        type=str,
-        default=None,
-        help="Config YAML to (re-)run walk-forward if run_dir not provided.",
-    )
-    p.add_argument(
-        "--processed_path",
-        type=str,
-        default=None,
-        help="Processed continuous futures parquet (output of scripts/01_build_data.py).",
-    )
-
-    p.add_argument(
-        "--out_dir",
-        type=str,
-        default=None,
-        help="Output directory for report artifacts. Defaults to <run_dir>/reports or ./reports/report.",
-    )
-
-    p.add_argument(
-        "--lbma_path",
-        type=str,
-        default=None,
-        help="Optional LBMA spot price file (parquet/csv) for benchmark regression.",
-    )
-    p.add_argument(
-        "--seed",
-        type=int,
-        default=None,
-        help="Seed for bootstraps (overrides config.bootstrap.seed).",
-    )
-
+    p = argparse.ArgumentParser(description="Forecast-to-Fill capacity analysis")
+    p.add_argument("--run_dir", type=str, default=None, help="Existing WF run directory")
+    p.add_argument("--config", type=str, default=None, help="Base YAML config")
+    p.add_argument("--processed_path", type=str, default=None, help="Processed continuous parquet")
+    p.add_argument("--out_dir", type=str, default=None, help="Output directory")
+    p.add_argument("--seed", type=int, default=None)
+    p.add_argument("--aum_list", type=str, default="100e6,500e6,1e9")
+    p.add_argument("--participation_cap", type=float, default=None)
+    p.add_argument("--L_max_grid", type=float, default=5.0)
     return p.parse_args()
 
 
+# ---------------------------------------------------------------------
+# Config loader
+# ---------------------------------------------------------------------
 def _dict_to_cfg(d: Dict[str, Any]) -> FTFConfig:
     from ftf.utils.config import (
         ATRExitConfig,
@@ -135,92 +90,100 @@ def _dict_to_cfg(d: Dict[str, Any]) -> FTFConfig:
         regression=RegressionConfig(**d.get("regression", {})),
         bootstrap=BootstrapConfig(**d.get("bootstrap", {})),
         capacity=CapacityConfig(**d.get("capacity", {})),
-        run_name=d.get("run_name", "base"),
+        run_name=d.get("run_name", d.get("name", "base")),
     )
     validate_config(cfg)
     return cfg
 
 
-def _read_lbma_returns(path: str, *, calendar_name: str = "NYSE") -> pd.Series:
-    from ftf.data.loaders import read_lbma_spot
-
-    p = Path(path)
-    if not p.exists():
-        raise FileNotFoundError(path)
-
-    spot = read_lbma_spot(p, calendar_name=calendar_name)
-    r = spot.pct_change().replace([np.inf, -np.inf], np.nan)
-    r.name = "r_gold"
-    return r
-
-
-def _maybe_plot_equity(net_ret: pd.Series, out_path: Path) -> None:
-    try:
-        import matplotlib.pyplot as plt
-
-        eq = (1.0 + net_ret.fillna(0.0)).cumprod()
-        fig, ax = plt.subplots(figsize=(10, 4))
-        eq.plot(ax=ax, lw=1.5)
-        ax.set_title("Equity curve (net)")
-        ax.set_ylabel("Equity")
-        ax.grid(True, alpha=0.3)
-        fig.tight_layout()
-        fig.savefig(out_path, dpi=150)
-        plt.close(fig)
-    except Exception:
-        # matplotlib optional; never fail the reporting pipeline
-        return
-
-
+# ---------------------------------------------------------------------
+# Load existing WF or run it
+# ---------------------------------------------------------------------
 def _load_or_run(
     *,
     run_dir: Optional[str],
     config_path: Optional[str],
     processed_path: Optional[str],
     out_dir: Optional[str],
-) -> tuple[pd.DataFrame, FTFConfig, Path]:
+) -> Tuple[pd.DataFrame, FTFConfig, Path]:
+
     if run_dir is not None:
         rd = Path(run_dir)
-        if not rd.exists():
-            raise FileNotFoundError(run_dir)
 
         cfg_path = rd / "config_snapshot.yaml"
         daily_path = rd / "reports" / "oos_daily.parquet"
+
+        # tolerate both layouts
         if not cfg_path.exists():
-            raise FileNotFoundError(str(cfg_path))
-        if not daily_path.exists():
-            raise FileNotFoundError(str(daily_path))
+            alt = rd / "reports" / "config_snapshot.yaml"
+            if alt.exists():
+                cfg_path = alt
+
+        if not cfg_path.exists() or not daily_path.exists():
+            raise FileNotFoundError(
+                f"run_dir must contain config_snapshot.yaml and reports/oos_daily.parquet. run_dir={rd}"
+            )
 
         cfg = _dict_to_cfg(load_yaml(cfg_path))
         daily = load_parquet(daily_path)
-        od = Path(out_dir) if out_dir is not None else (rd / "reports")
-        ensure_dir(od)
-        return daily, cfg, od
 
+        out = Path(out_dir) if out_dir is not None else (rd / "reports" / "capacity")
+        ensure_dir(out)
+        return daily, cfg, out
+
+    # run from scratch
     if config_path is None or processed_path is None:
-        raise ValueError("Provide --run_dir OR both --config and --processed_path")
+        raise ValueError("Provide either --run_dir or (--config and --processed_path)")
 
-    base = load_yaml(config_path)
-    cfg = _dict_to_cfg(base)
+    cfg = _dict_to_cfg(load_yaml(Path(config_path)))
+    df_cont = load_parquet(Path(processed_path))
 
-    df_cont = load_parquet(processed_path)
-    # Run walk-forward and use its stitched daily output
-    res = run_walkforward(df_cont, cfg=cfg, out_dir=None, persist_daily=False, persist_per_anchor=False)
+    out = Path(out_dir) if out_dir is not None else Path("reports") / "capacity"
+    ensure_dir(out)
 
-    od = Path(out_dir) if out_dir is not None else Path("reports") / "report"
-    ensure_dir(od)
+    wf_out = out / "walkforward"
+    ensure_dir(wf_out)
 
-    # Persist minimal artifacts to make report self-contained
-    save_yaml(cfg.to_dict(), od / "config_snapshot.yaml")
-    save_parquet(res.oos_daily, od / "oos_daily.parquet")
+    res = run_walkforward(df_cont, cfg=cfg, out_dir=wf_out, progress=False)
+    daily = res.oos_daily
 
-    return res.oos_daily, cfg, od
+    save_yaml(cfg.to_dict(), out / "config_snapshot.yaml")
+    return daily, cfg, out
 
 
+# ---------------------------------------------------------------------
+# Unit-notional sleeve (paper-consistent)
+# ---------------------------------------------------------------------
+def _unit_notional_returns(daily: pd.DataFrame) -> pd.Series:
+    """
+    Preferred: use `unit_sleeve_ret` saved by runner
+    Fallback: build proxy from executed exposure (legacy)
+    """
+    if "unit_sleeve_ret" in daily.columns:
+        R_u = daily["unit_sleeve_ret"].astype(float).fillna(0.0).copy()
+        R_u.name = "unit_sleeve_ret"
+        return R_u
+
+    # fallback (should not be used once runner is fixed)
+    if "r" not in daily.columns or "w_exec" not in daily.columns:
+        raise ValueError("daily must contain 'unit_sleeve_ret' or both ('r','w_exec')")
+
+    r = daily["r"].astype(float)
+    w_exec = daily["w_exec"].astype(float)
+    pos_prev = (w_exec.shift(1).fillna(0.0).abs() > 1e-12).astype(float)
+    R_u = pos_prev * r
+    R_u.name = "unit_notional_proxy"
+    print("[WARN] Using proxy unit-notional sleeve (unit_sleeve_ret not found).")
+    return R_u
+
+
+# ---------------------------------------------------------------------
+# Main
+# ---------------------------------------------------------------------
 def main() -> None:
     args = _parse_args()
 
-    daily, cfg, out_dir = _load_or_run(
+    daily, cfg, out = _load_or_run(
         run_dir=args.run_dir,
         config_path=args.config,
         processed_path=args.processed_path,
@@ -230,59 +193,123 @@ def main() -> None:
     seed = int(args.seed) if args.seed is not None else int(cfg.bootstrap.seed)
     set_global_seed(seed)
 
-    if "net_ret" not in daily.columns:
-        raise ValueError("daily table missing required column 'net_ret'")
+    # parse AUM list
+    aums = []
+    for s in str(args.aum_list).split(","):
+        s = s.strip()
+        if s:
+            aums.append(float(eval(s, {"__builtins__": {}}, {})))
+    if not aums:
+        aums = [100e6, 500e6, 1e9]
 
-    net_ret = pd.Series(daily["net_ret"].values, index=pd.DatetimeIndex(daily.index), name="net_ret")
-    w_exec = None
-    if "w_exec" in daily.columns:
-        w_exec = pd.Series(daily["w_exec"].values, index=pd.DatetimeIndex(daily.index), name="w_exec")
-
-    perf = summarize(net_ret, w_exec=w_exec)
-    perf_df = pd.DataFrame([perf])
-    perf_df.to_csv(out_dir / "perf_table.csv", index=False)
-
-    # Bootstrap Sharpe CI
-    ci = bootstrap_sharpe_ci(
-        net_ret.dropna(),
-        B=int(cfg.bootstrap.block_bootstrap_B),
-        block_len=int(cfg.bootstrap.block_len),
-        seed=seed,
+    part_cap = (
+        float(args.participation_cap)
+        if args.participation_cap is not None
+        else float(cfg.capacity.participation_cap)
     )
-    save_json(asdict(ci), out_dir / "sharpe_ci.json")
 
-    # Regression vs benchmark if provided
-    reg_rows = []
-    if args.lbma_path is not None:
-        bench_ret = _read_lbma_returns(args.lbma_path, calendar_name=cfg.data.calendar)
-        sens = hac_regression_sensitivity(
-            net_ret,
-            bench_ret,
-            nw_lags_list=cfg.regression.nw_lags_sensitivity,
+    # ----- core capacity inputs (paper-consistent) -----
+    R_u = _unit_notional_returns(daily)
+    mu_u, sigma_u = estimate_unit_notional_stats(R_u)
+    ki = estimate_kelly_inputs(R_u, n=1.0)
+
+    gc = growth_curve(
+        mu_u=mu_u,
+        sigma_u=sigma_u,
+        L_max=float(args.L_max_grid),
+        costs=cfg.costs,
+    )
+    Lmax = solve_L_max(
+        mu_u=mu_u,
+        sigma_u=sigma_u,
+        costs=cfg.costs,
+        bracket=(0.0, max(10.0, float(args.L_max_grid))),
+    )
+
+    pd.DataFrame({"L": gc.L, "g": gc.g}).to_csv(out / "growth_curve.csv", index=False)
+
+    # ----- AUM mapping -----
+    price_col = cfg.data.price_col
+    adv_col = cfg.data.adv_col
+    vol_col = getattr(cfg.data, "volume_col", "volume")
+
+    # price is required
+    if price_col not in daily.columns:
+        raise ValueError(f"Price column {price_col!r} missing from daily")
+
+    # ADV preferred; fallback to rolling volume proxy if missing
+    if adv_col not in daily.columns:
+        if vol_col not in daily.columns:
+            raise ValueError(
+                f"ADV column {adv_col!r} missing and volume column {vol_col!r} missing from daily"
+            )
+
+        # Build ADV proxy from volume (20d rolling mean)
+        daily[adv_col] = (
+            daily[vol_col]
+            .astype(float)
+            .rolling(window=20, min_periods=1)
+            .mean()
         )
-        for L, res in sens.items():
-            row = result_to_dict(res)
-            row["nw_lags"] = L
-            reg_rows.append(row)
-        reg_df = pd.DataFrame(reg_rows).sort_values("nw_lags")
-        reg_df.to_csv(out_dir / "regression_table.csv", index=False)
+        print(
+            f"[WARN] '{adv_col}' missing in daily. "
+            f"Built ADV proxy from '{vol_col}' (20d rolling mean)."
+        )
 
-    # Small summary json
-    summary: Dict[str, Any] = {
-        "run_name": cfg.run_name,
+    price = daily[price_col].astype(float)
+    adv = daily[adv_col].astype(float)
+    w_exec = daily["w_exec"].astype(float)
+
+
+    cap_res = estimate_aum_capacity(
+        w_exec,
+        price=price,
+        adv=adv,
+        participation_cap=part_cap,
+        contract_multiplier=float(cfg.data.contract_multiplier),
+    )
+
+    part_rows = []
+    for A in aums:
+        q, summ = aum_participation_summary(
+            w_exec,
+            aum=float(A),
+            price=price,
+            adv=adv,
+            contract_multiplier=float(cfg.data.contract_multiplier),
+        )
+        part_rows.append({"aum": float(A), **asdict(summ)})
+        q.to_frame("participation").to_parquet(out / f"participation_A{int(A)}.parquet")
+
+    pd.DataFrame(part_rows).to_csv(out / "participation_summaries.csv", index=False)
+
+    summary = {
         "seed": seed,
-        "n_days": int(np.isfinite(net_ret.values).sum()),
-        "perf": perf,
-        "sharpe_ci": asdict(ci),
+        "mu_u_daily": float(mu_u),
+        "sigma_u_daily": float(sigma_u),
+        "kelly_inputs": asdict(ki),
+        "growth_curve": {
+            "k_linear": float(cfg.costs.k_linear),
+            "gamma_impact": float(cfg.costs.gamma_impact),
+            "L_max_grid": float(args.L_max_grid),
+            "L_star_zero_cross": float(Lmax),
+        },
+        "aum_capacity": capacity_dict(cap_res),
+        "participation_cap": float(part_cap),
+        "aums_checked": [float(x) for x in aums],
     }
-    if reg_rows:
-        summary["regression"] = reg_rows
 
-    save_json(summary, out_dir / "report_summary.json")
+    save_json(summary, out / "capacity_summary.json")
+    save_yaml({"capacity_summary": summary}, out / "capacity_summary.yaml")
 
-    # Plot
-    _maybe_plot_equity(net_ret, out_dir / "equity_curve.png")
+    try:
+        plot_growth_curve(gc.L, gc.g, out_path=str(out / "growth_curve.png"), title="Growth curve g(L)")
+    except Exception:
+        pass
+
+    print(f"Wrote capacity artifacts to: {out}")
 
 
 if __name__ == "__main__":
     main()
+
