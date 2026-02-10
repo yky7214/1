@@ -231,14 +231,35 @@ def main() -> None:
     # ----- AUM mapping -----
     price_col = cfg.data.price_col
     adv_col = cfg.data.adv_col
-    if adv_col not in daily.columns:
-        raise ValueError(f"ADV column {adv_col!r} missing from daily")
+    vol_col = getattr(cfg.data, "volume_col", "volume")
+
+    # price is required
     if price_col not in daily.columns:
         raise ValueError(f"Price column {price_col!r} missing from daily")
+
+    # ADV preferred; fallback to rolling volume proxy if missing
+    if adv_col not in daily.columns:
+        if vol_col not in daily.columns:
+            raise ValueError(
+                f"ADV column {adv_col!r} missing and volume column {vol_col!r} missing from daily"
+            )
+
+        # Build ADV proxy from volume (20d rolling mean)
+        daily[adv_col] = (
+            daily[vol_col]
+            .astype(float)
+            .rolling(window=20, min_periods=1)
+            .mean()
+        )
+        print(
+            f"[WARN] '{adv_col}' missing in daily. "
+            f"Built ADV proxy from '{vol_col}' (20d rolling mean)."
+        )
 
     price = daily[price_col].astype(float)
     adv = daily[adv_col].astype(float)
     w_exec = daily["w_exec"].astype(float)
+
 
     cap_res = estimate_aum_capacity(
         w_exec,
@@ -291,4 +312,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
