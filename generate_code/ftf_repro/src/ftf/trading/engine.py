@@ -264,7 +264,11 @@ def run_engine(
 
 
     # fill error return (positive if forecast > realized fill)
-    fill_error_ret = (P_exec - P_hat_exec) / (P_exec + 1e-12)
+    # NOTE:
+    #   Paper convention is positive alpha when we increase position (dw>0)
+    #   and get filled below the forecasted execution price.
+    #   Therefore sign must be (forecast - realized), not the reverse.
+    fill_error_ret = (P_hat_exec - P_exec) / (P_exec + 1e-12)
     fill_error_ret.name = "fill_error_ret"
 
 
@@ -316,6 +320,7 @@ def run_engine(
             "w_exec": w_exec,
             "P_hat_exec": P_hat_exec,
             "fill_error_ret": fill_error_ret,
+            "gross_ret_ftf": gross_ret_ftf,
             "net_ret_ftf": net_ret_ftf,
             
             
