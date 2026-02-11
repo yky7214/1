@@ -251,8 +251,13 @@ def run_walkforward(
      # ===== after finishing all anchors: stitch OOS =====
     stitched = _stitch_first_step_only(engines, anchors, cfg=cfg)
 
-    oos_net_ret = stitched["net_ret"].copy()
-    oos_gross_ret = stitched["gross_ret"].copy()
+    # Prefer Forecast-to-Fill augmented series when available.
+    # Fallback to legacy gross/net columns for backward compatibility.
+    primary_net_col = "net_ret_ftf" if "net_ret_ftf" in stitched.columns else "net_ret"
+    primary_gross_col = "gross_ret_ftf" if "gross_ret_ftf" in stitched.columns else "gross_ret"
+
+    oos_net_ret = stitched[primary_net_col].copy()
+    oos_gross_ret = stitched[primary_gross_col].copy()
 
     if out_path is not None and persist_daily:
         ensure_dir(out_path / "reports")
@@ -322,8 +327,8 @@ def run_walkforward(
     stitched["unit_sleeve_ret"] = unit_active_prev.astype(float) * r
 
     # Primary series
-    oos_net_ret = stitched["net_ret"].copy()
-    oos_gross_ret = stitched["gross_ret"].copy()
+    oos_net_ret = stitched[primary_net_col].copy()
+    oos_gross_ret = stitched[primary_gross_col].copy()
 
     if out_path is not None and persist_daily:
         ensure_dir(out_path / "reports")
@@ -344,5 +349,4 @@ def run_walkforward(
         per_anchor=engines,
         frozen_params=frozen_params,
     )
-
 
